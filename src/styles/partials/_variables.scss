@@ -1,0 +1,24 @@
+// Breakpoints
+
+$tablet-breakpoint: 767px;
+$desktop-breakpoint: 1279px;
+
+// Margins
+
+$mobile-margins: 1rem;
+$tablet-margins: 2rem;
+
+// Colors
+
+$instock-black: #13182c; //Primary colors - Global text color
+$instock-indigo: #2e66e5; //Primary colors - Interactive elements
+$white: #ffffff; //Primary colors - Global white color
+
+$slate: #5c667e; //Secondary colors - Table column headers & placeholder text
+$cloud: #bdc5d5; //Secondary colors - Outlines, dividers, borders, table sorting icon
+
+$graphite: #232940; //Background colors - Top navigation header background, CTA button hover state background
+$light-grey: #f7f8f9; //Background colors - Page background, table column header background, CTA background
+
+$green: #158463; //Supporting colors - "In stock" label
+$red: #c94515; //Supporting colors - "Out of stock" label, error states & delete icon
