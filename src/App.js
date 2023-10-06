@@ -3,8 +3,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
 // pages component
-import Warehouse from "./components /Warehouse";
-import Inventory from "./components /Inventory";
+import Warehouse from "./components /Warehouses/Warehouses";
+import Inventory from "./components /Inventory/Inventory";
 
 const App = () => {
   return (
