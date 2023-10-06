@@ -2,8 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Warehouse = () => {
-  // Entered Started Lorem Ipsum for Visualization of Routes
-
   return (
     <section>
       <div className="warehouse__nav">
@@ -29,16 +27,18 @@ const Warehouse = () => {
           </NavLink>
         </div>
       </div>
-      <ul className="warehouse-topbar">
-        <li className="warehouse-topbar__warehouse">WAREHOUSE</li>
-        <li className="warehouse-topbar__address">ADDRESS</li>
-        <li className="warehouse-topbar__contact-name">CONTACT NAME</li>
-        <li className="warehouse-topbar__contact-information">
-          {" "}
-          CONTACT INFORMATION
-        </li>
-        <li className="warehouse-topbar__actions"> ACTIONS </li>
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>WAREHOUSE</th>
+            <th>ADDRESS</th>
+            <th>CONTACT NAME</th>
+            <th>CONTACT Information</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>{/* Add table rows and data here */}</tbody>
+      </table>
     </section>
   );
 };
