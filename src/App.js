@@ -1,30 +1,31 @@
 import React from "react";
 
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 
-// pages component
+// pages component(s) import
 import Warehouse from "./components /Warehouses/Warehouses";
 import WarehouseDetails from "./components /WarehouseDetails/WarehouseDetails";
 import Inventory from "./components /Inventory/Inventory";
 
+// root layout import
+import RootLayout from "./layout/RootLayout";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Warehouse />} />
+      <Route path="Inventory" element={<Inventory />} />
+    </Route>
+  )
+);
+
 const App = () => {
-  return (
-    <BrowserRouter>
-      <header>
-        <nav>
-          <h1>INSTOCK</h1>
-          <NavLink to="/">Warehouse</NavLink>
-          <NavLink to="Inventory">Inventory</NavLink>
-        </nav>
-      </header>
-      <main>
-        <Routes>
-          <Route index element={<Warehouse />} />
-          <Route path="Inventory" element={<Inventory />} />
-        </Routes>
-      </main>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
