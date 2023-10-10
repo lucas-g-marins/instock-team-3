@@ -25,7 +25,9 @@ function WarehouseList({}) {
           <h3>+ Add New Warehouse</h3>
         </button>
       </form>
-      <WarehouseCard />
+      {warehouseData.map((warehouse) => (
+        <WarehouseCard key={warehouse.id} city={warehouse.city} />
+      ))}
     </div>
   );
 }
