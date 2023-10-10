@@ -6,15 +6,16 @@ const Header = () => {
   return (
     <header className="navigation">
       <div className="navigation-header">
-        <img src={Logo} alt="instock logo"></img>
+        <Link to="/">
+          <img src={Logo} alt="instock logo"></img>
+        </Link>
         <div className="navigation-header__container">
-          {/* TO BE REPLACED WITH LINK TO */}
-          <a className="navigation-header__link" href="#">
+          <Link to="/warehouses" className="navigation-header__link">
             Warehouses
-          </a>
-          <a className="navigation-header__link" href="#">
+          </Link>
+          <Link to="/inventory" className="navigation-header__link">
             Inventory
-          </a>
+          </Link>
         </div>
       </div>
     </header>
