@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./App.scss";
 import {
   createBrowserRouter,
@@ -9,7 +8,7 @@ import {
   Routes,
 } from "react-router-dom";
 // pages component(s) import
-import Header from "./components /Header";
+import Header from "./components /Header/Header";
 import Warehouses from "./components /Warehouses/Warehouses";
 import WarehouseDetails from "./components /WarehouseDetails/WarehouseDetails";
 import Inventory from "./components /Inventory/Inventory";
