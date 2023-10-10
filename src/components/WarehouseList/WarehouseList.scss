@@ -1,1 +1,16 @@
 @use "../../styles/partials/typography";
+@use "../../styles/partials/global";
+@use "../../styles/partials/variables";
+
+.warehouses {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  &__button {
+    background-color: variables.$instock-indigo;
+  }
+}
