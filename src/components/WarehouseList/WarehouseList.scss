@@ -12,6 +12,11 @@
       justify-content: space-between;
       align-items: baseline;
     }
+    @include mixins.desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
   }
 
   &__title {
@@ -28,6 +33,10 @@
       flex-direction: row;
       justify-content: flex-end;
     }
+    @include mixins.desktop {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
   }
 
   &__input-container {
@@ -36,6 +45,10 @@
     padding-bottom: 1rem;
     @include mixins.tablet {
       width: 40%;
+      padding: 0 1rem;
+    }
+    @include mixins.desktop {
+      width: 35%;
       padding: 0 1rem;
     }
   }
@@ -47,6 +60,9 @@
     @include mixins.tablet {
       right: 1.5rem;
     }
+    @include mixins.desktop {
+      right: 1.5rem;
+    }
   }
 
   &__button {
@@ -54,6 +70,10 @@
     margin-bottom: 1rem;
     @include mixins.tablet {
       width: 40%;
+      padding: 0 1rem;
+    }
+    @include mixins.desktop {
+      width: 22%;
       padding: 0 1rem;
     }
   }
