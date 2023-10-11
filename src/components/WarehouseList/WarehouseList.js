@@ -50,6 +50,7 @@ function WarehouseList({}) {
           name={warehouse.contact_name}
           phone={warehouse.contact_phone}
           email={warehouse.contact_email}
+          id={warehouse.id}
         />
       ))}
     </div>
