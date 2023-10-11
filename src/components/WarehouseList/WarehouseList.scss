@@ -65,5 +65,9 @@
       display: flex;
       justify-content: space-evenly;
     }
+    @include mixins.desktop {
+      display: flex;
+      justify-content: space-evenly;
+    }
   }
 }

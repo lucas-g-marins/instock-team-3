@@ -11,8 +11,12 @@ function WarehouseList({}) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get(`${apiURL}/warehouses`);
+      try {
+        const { data } = await axios.get(`${apiURL}/warehouses`);
       setWarehouseData(data);
+    } catch (error) {
+      console.log("Error:", error)
+    }  
     };
     fetchData();
   }, []);

@@ -5,20 +5,32 @@
 .warehousecard {
   border-top: 1px solid variables.$cloud;
   padding: 0.5rem 0;
-  @include mixins.tablet {
-    display: flex;
-    width: 100%;
-  }
 
   &__info {
     display: flex;
     justify-content: space-around;
     padding: 0 0rem;
     @include mixins.tablet {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      padding-left: 6rem;
+      display: none;
+    }
+    @include mixins.desktop {
+      display: none;
+    }
+
+    &--tablet-desktop {
+      display: none;
+      @include mixins.tablet {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding-left: 10%;
+      }
+      @include mixins.desktop {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding-left: 13%;
+      }
     }
   }
 
@@ -34,17 +46,15 @@
     }
   }
 
-  &__location {
-    @include mixins.tablet {
-      display: flex;
-      width: 35%;
-    }
-  }
-
   &__name-container {
     display: flex;
     @include mixins.tablet {
-      width: 60%;
+      width: 20%;
+      align-self: center;
+      justify-content: flex-start;
+    }
+    @include mixins.desktop {
+      width: 18%;
       align-self: center;
       justify-content: flex-start;
     }
@@ -52,22 +62,22 @@
 
   &__city {
     color: variables.$instock-indigo;
-    @include mixins.tablet {
-      width: 60%;
-    }
   }
 
-  &__contact {
-    @include mixins.tablet {
-      display: flex;
-      width: 35%;
-      justify-content: flex-start;
-    }
+  &__address {
+    width: 20%;
+  }
+
+  &__name {
+    width: 20%;
   }
 
   &__contact-info {
     @include mixins.tablet {
-      padding: 0 0.5rem;
+     width: 23%;
+    }
+    @include mixins.desktop {
+      width: 23%;
     }
   }
 
@@ -75,5 +85,16 @@
     display: flex;
     justify-content: space-between;
     padding: 0 3rem;
+    @include mixins.tablet {
+      display: none;
+    }
+
+    @include mixins.desktop {
+      display: none;
+    }
+
+    &--tablet-desktop {
+      display: flex;
+    }
   }
 }
