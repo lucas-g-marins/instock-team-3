@@ -1,0 +1,52 @@
+@use "../../styles/partials/typography";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.add-warehouse {
+  background-color: variables.$white;
+  width: 90%;
+  margin: auto;
+  border-radius: 1.25rem;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid variables.$cloud;
+  }
+
+  &__title {
+    padding-left: 0.5rem;
+  }
+
+  &__details {
+    padding: 1rem 1rem;
+  }
+
+  &__border {
+    border-bottom: 1px solid variables.$cloud;
+  }
+
+  &__contact-details {
+    padding: 1rem 1rem;
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+  }
+
+  &__cancel-btn {
+    width: 40%;
+    background-color: #fff;
+    border: 1px solid variables.$cloud;
+    color: #000;
+  }
+
+  &__add-btn {
+    width: 40%;
+    background-color: variables.$instock-indigo;
+  }
+}

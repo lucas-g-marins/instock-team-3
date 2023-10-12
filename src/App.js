@@ -15,16 +15,17 @@ import WarehouseList from "./components/WarehouseList/WarehouseList";
 import WarehouseCard from "./components/WarehouseCard/WarehouseCard";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse"; // Import the EditWarehouse component
 import Footer from "./components/Footer/Footer"; // Import the footer component
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
     <section className="application">
       <Header />
-      <WarehouseList />
       <Routes>
         <Route path={"/WarehouseList"} element={<WarehouseList />} />
         <Route path={"/WarehouseCard"} element={<WarehouseCard />} />
         <Route path={"/EditWarehouse"} element={<EditWarehouse />} />
+        <Route path={"/AddWarehouse"} element={<AddWarehouse />} />
       </Routes>
       <Footer />
     </section>
