@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import "./App.scss";
@@ -11,27 +10,11 @@ import {
   Routes,
 } from "react-router-dom";
 // pages component(s) import
-import Header from "./components /Header";
-import Warehouses from "./components /Warehouses/Warehouses";
-import WarehouseDetails from "./components /WarehouseDetails/WarehouseDetails";
-import Inventory from "./components /Inventory/Inventory";
-// root layout import
-import RootLayout from "./layout/RootLayout";
-import EditWarehouse from './components/EditWarehouse/EditWarehouse'; // Import the EditWarehouse component
-import Footer from './components/Footer/Footer'; // Import the footer component
-
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     <Route path="/" element={<RootLayout />}>
-//       <Route index element={<Warehouse />} />
-//       <Route path="Inventory" element={<Inventory />} />
-//     </Route>
-//   )
-// );
-
-// const App = () => {
-//   return <RouterProvider router={router} />;
-// };
+import Header from "./components/Header/Header";
+import WarehouseList from "./components/WarehouseList/WarehouseList";
+import WarehouseCard from "./components/WarehouseCard/WarehouseCard";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse"; // Import the EditWarehouse component
+import Footer from "./components/Footer/Footer"; // Import the footer component
 
 function App() {
   return (
@@ -39,13 +22,13 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path={"/Warehouses"} element={<Warehouses />} />
-        <Route path={"/Inventory"} element={<Inventory />} />
+        <Route path={"/WarhouseList"} element={<WarehouseList />} />
+        <Route path={"/WarehouseCard"} element={<WarehouseCard />} />
+        <Route path={"/EditWarehouse"} element={<EditWarehouse />} />
       </Routes>
- <Footer />
+      <Footer />
     </section>
   );
 }
-
 
 export default App;
