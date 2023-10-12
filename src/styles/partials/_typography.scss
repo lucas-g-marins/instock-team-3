@@ -1,3 +1,5 @@
+@use "../partials/variables";
+
 @font-face {
   font-family: "Titillium";
   src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("woff2");
@@ -6,8 +8,39 @@
 }
 
 @font-face {
-  font-family: "Titillium";
+  font-family: "Titillium Bold";
   src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("woff2");
   font-weight: 600;
   font-style: normal;
+}
+
+// headings
+
+// page header
+h1 {
+  font-family: "Titillium Bold";
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+// subheader
+h2 {
+  font-family: "Titillium Bold";
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+// labels, links & buttons
+h3 {
+  font-family: "Titillium Bold";
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+}
+
+// table header
+h4 {
+  font-family: "Titillium Bold";
+  font-size: 0.688rem;
+  line-height: 1rem;
+  color: variables.$slate;
 }
