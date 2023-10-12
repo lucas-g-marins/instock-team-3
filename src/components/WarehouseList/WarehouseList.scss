@@ -5,6 +5,10 @@
 
 .warehouses {
   padding: 1rem 1rem;
+  width: 90%;
+  margin: auto;
+  background-color: variables.$white;
+  border-radius: 1.25rem;
 
   &__header {
     @include mixins.tablet {

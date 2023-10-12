@@ -1,3 +1,9 @@
+@use "./styles/partials/variables";
+
+.application {
+  background-color: variables.$light-grey;
+}
+
 .App {
   text-align: center;
 }

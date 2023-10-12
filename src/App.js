@@ -20,9 +20,9 @@ function App() {
   return (
     <section className="application">
       <Header />
-
+      <WarehouseList />
       <Routes>
-        <Route path={"/WarhouseList"} element={<WarehouseList />} />
+        <Route path={"/WarehouseList"} element={<WarehouseList />} />
         <Route path={"/WarehouseCard"} element={<WarehouseCard />} />
         <Route path={"/EditWarehouse"} element={<EditWarehouse />} />
       </Routes>
