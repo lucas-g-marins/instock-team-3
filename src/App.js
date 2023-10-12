@@ -10,6 +10,7 @@ import {
   Routes,
 } from "react-router-dom";
 // pages component(s) import
+
 import Header from "./components/Header";
 import Warehouses from "./components/Warehouses/Warehouses";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
