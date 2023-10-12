@@ -1,0 +1,24 @@
+@use "../../styles/partials/variables";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// input styling
+input {
+  border-radius: 1.25rem;
+  border: 1px solid variables.$cloud;
+  height: 2.25rem;
+  width: 100%;
+  margin-bottom: 4px;
+  padding: 0 1rem;
+}
+
+button {
+  border-radius: 1.25rem;
+  border: 0px;
+  height: 2.25rem;
+  color: variables.$white;
+}

@@ -1,16 +1,17 @@
 @use "./variables" as *;
 
 @mixin tablet {
-  @media (min-width: $tablet-breakpoint) {
+  @media screen and (min-width: $tablet-breakpoint) and (max-width: 1279px) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: $desktop-breakpoint) {
+  @media screen and (min-width: $desktop-breakpoint) {
     @content;
   }
 }
+
 
 @mixin regular {
   font-family: "Titillium";
@@ -23,3 +24,4 @@
   font-weight: 600;
   font-style: normal;
 }
+
