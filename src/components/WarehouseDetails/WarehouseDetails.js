@@ -15,7 +15,7 @@ export function WarehouseDetails({}) {
       try {
         const { data } = await axios.get(`${apiURL}/warehouses/${id}`);
         console.log(data);
-        setWarehouseData(data[0]);
+        setWarehouseData(...data);
       } catch (error) {
         console.log("Error:", error);
       }

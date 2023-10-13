@@ -1,6 +1,7 @@
 import React from "react";
 import "./WarehouseCard.scss";
 import { Link } from "react-router-dom";
+import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
@@ -40,7 +41,12 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
         </div>
       </div>
       <div className="warehousecard__icons">
-        <img src={DeleteIcon}></img>
+        <DeleteWarehouse
+          warehouseid={id}
+          warehousename={city}
+          icon={<img src={DeleteIcon}></img>}
+        />
+        {/* <img src={DeleteIcon}></img> */}
         <img src={EditIcon}></img>
       </div>
       {/* tablet and desktop */}
@@ -58,7 +64,13 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
           <h4 className="warehousecard__copy">{email}</h4>
         </div>
         <div className="warehousecard__icons--tablet-desktop">
-          <img src={DeleteIcon}></img>
+          <DeleteWarehouse
+            warehouseid={id}
+            warehousename={city}
+            icon={<img src={DeleteIcon}></img>}
+          />
+
+          {/* <img src={DeleteIcon}></img> */}
           <img src={EditIcon}></img>
         </div>
       </div>

@@ -13,10 +13,10 @@ function WarehouseList({}) {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`${apiURL}/warehouses`);
-      setWarehouseData(data);
-    } catch (error) {
-      console.log("Error:", error)
-    }  
+        setWarehouseData(data);
+      } catch (error) {
+        console.log("Error:", error);
+      }
     };
     fetchData();
   }, []);
