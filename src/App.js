@@ -1,6 +1,6 @@
 import React from 'react';
 import EditWarehouse from './components/EditWarehouse/EditWarehouse'; // Import the EditWarehouse component
-import Footer from './components/Footer/Footer'; // Import the footer component
+import Footer from './components/footer/footer'; // Import the footer component
 
 const App = () => {
   return (
