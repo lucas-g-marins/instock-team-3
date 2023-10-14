@@ -1,7 +1,9 @@
+// import React, { useState } from "react";
 import * as React from "react";
 import axios from "axios";
-import { Unstable_Popup as Popup } from "@mui/base/Unstable_Popup";
-import { styled } from "@mui/system";
+
+// import { Unstable_Popup as Popup } from "@mui/base/Unstable_Popup";
+// import { styled } from "@mui/system";
 
 export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
   const apiURL = process.env.REACT_APP_DATA;
@@ -24,7 +26,7 @@ export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
     <div>
       <div onClick={() => setOpen(true)}>{icon}</div>
 
-      <Popup open={open}>
+      {/* <Popup open={open}>
         <PopupBody>
           <h1>Delete {warehousename} warehouse?</h1>
           <p>
@@ -34,17 +36,19 @@ export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
           <button
             onClick={() => {
               setOpen(false);
-            }}>
+            }}
+          >
             Cancel
           </button>
           <button
             onClick={() => {
               deleteWarehouse();
-            }}>
+            }}
+          >
             Detele
           </button>
         </PopupBody>
-      </Popup>
+      </Popup> */}
     </div>
   );
 }
@@ -63,24 +67,24 @@ const blue = {
   700: "#0059B2",
 };
 
-const PopupBody = styled("div")(
-  ({ theme }) => `
-  width: max-content;
-  padding: 12px 16px;
-  margin: 8px;
-  border-radius: 8px;
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  background-color: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
-  box-shadow: ${
-    theme.palette.mode === "dark"
-      ? `0px 4px 8px rgb(0 0 0 / 0.7)`
-      : `0px 4px 8px rgb(0 0 0 / 0.1)`
-  };
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.875rem;
-  z-index: 1;
-`
-);
+// const PopupBody = styled("div")(
+//   ({ theme }) => `
+//   width: max-content;
+//   padding: 12px 16px;
+//   margin: 8px;
+//   border-radius: 8px;
+//   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+//   background-color: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
+//   box-shadow: ${
+//     theme.palette.mode === "dark"
+//       ? `0px 4px 8px rgb(0 0 0 / 0.7)`
+//       : `0px 4px 8px rgb(0 0 0 / 0.1)`
+//   };
+//   font-family: 'IBM Plex Sans', sans-serif;
+//   font-size: 0.875rem;
+//   z-index: 1;
+// `
+// );
 
 // const Button = styled("button")`
 //   font-family: "IBM Plex Sans", sans-serif;
