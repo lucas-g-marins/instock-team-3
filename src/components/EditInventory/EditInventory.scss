@@ -69,7 +69,7 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding-top: 1rem;
+    padding: 1rem 0;
 
     @include mixins.tablet {
       padding-top: 2rem;

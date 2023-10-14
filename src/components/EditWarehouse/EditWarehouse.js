@@ -11,7 +11,18 @@ const EditWarehouse = () => {
 
   console.log(warehouseid);
 
-  const [defaultWarehouseData, setDefaultWarehouseData] = useState([]);
+  const [defaultWarehouseData, setDefaultWarehouseData] = useState([
+    {
+      warehouse_name: "",
+      address: "",
+      city: "",
+      country: "",
+      contact_name: "",
+      contact_position: "",
+      contact_phone: "",
+      contact_email: "",
+    },
+  ]);
 
   // get warehouse data
   useEffect(() => {
@@ -56,7 +67,16 @@ const EditWarehouse = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .put(`${apiURL}/warehouses/${warehouseid}`, { warehouseData })
+      .put(`${apiURL}/warehouses/${warehouseid}`, {
+        warehouse_name: warehouseData.warehouse_name,
+        address: warehouseData.address,
+        city: warehouseData.city,
+        country: warehouseData.country,
+        contact_name: warehouseData.contact_name,
+        contact_position: warehouseData.contact_position,
+        contact_phone: warehouseData.contact_phone,
+        contact_email: warehouseData.contact_email,
+      })
       .then((result) => console.log(result))
       .catch((e) => console.log(e));
   };
@@ -94,6 +114,7 @@ const EditWarehouse = () => {
                     name="warehouse_name"
                     value={warehouseData.warehouse_name}
                     onChange={handleInputChange}
+                    placeholder={defaultWarehouseData[0].warehouse_name}
                   />
                 </div>
                 <div className="edit-warehouse__form-field">
@@ -105,7 +126,7 @@ const EditWarehouse = () => {
                     name="address"
                     value={warehouseData.address}
                     onChange={handleInputChange}
-                    placeholder={defaultWarehouseData.address}
+                    placeholder={defaultWarehouseData[0].address}
                   />
                 </div>
                 <div className="edit-warehouse__form-field">
@@ -117,7 +138,7 @@ const EditWarehouse = () => {
                     name="city"
                     value={warehouseData.city}
                     onChange={handleInputChange}
-                    defaultValue={defaultWarehouseData.city}
+                    placeholder={defaultWarehouseData[0].city}
                   />
                 </div>
                 <div className="edit-warehouse__form-field">
@@ -129,6 +150,7 @@ const EditWarehouse = () => {
                     name="country"
                     value={warehouseData.country}
                     onChange={handleInputChange}
+                    placeholder={defaultWarehouseData[0].country}
                   />
                 </div>
               </div>
@@ -147,6 +169,7 @@ const EditWarehouse = () => {
                     name="contact_name"
                     value={warehouseData.contact_name}
                     onChange={handleInputChange}
+                    placeholder={defaultWarehouseData[0].contact_name}
                   />
                 </div>
                 <div className="edit-warehouse__form-field">
@@ -158,6 +181,7 @@ const EditWarehouse = () => {
                     name="contact_position"
                     value={warehouseData.contact_position}
                     onChange={handleInputChange}
+                    placeholder={defaultWarehouseData[0].contact_position}
                   />
                 </div>
                 <div className="edit-warehouse__form-field">
@@ -169,6 +193,7 @@ const EditWarehouse = () => {
                     name="contact_phone"
                     value={warehouseData.contact_phone}
                     onChange={handleInputChange}
+                    placeholder={defaultWarehouseData[0].contact_phone}
                   />
                 </div>
                 <div className="edit-warehouse__form-field">
@@ -180,6 +205,7 @@ const EditWarehouse = () => {
                     name="contact_email"
                     value={warehouseData.contact_email}
                     onChange={handleInputChange}
+                    placeholder={defaultWarehouseData[0].contact_email}
                   />
                 </div>
               </div>

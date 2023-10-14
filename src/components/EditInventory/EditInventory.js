@@ -6,9 +6,32 @@ import { Link } from "react-router-dom";
 import BackArrow from "../../assets/icons/arrow_back-24px.svg";
 
 const EditInventory = () => {
-  const { id } = useParams;
+  const { inventoryid } = useParams();
+
+  console.log(inventoryid);
 
   const [warehouseData, setWarehouseData] = useState([]);
+
+  const [defaultData, setDefaultData] = useState([
+    {
+      item_name: "",
+      description: "",
+      category: "",
+    },
+  ]);
+
+  //   pull warehouse information
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get(`${apiURL}/warehouses`);
+        setWarehouseData(data);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   //   state to store form values
   const [inventoryData, setInventoryData] = useState({
@@ -18,6 +41,7 @@ const EditInventory = () => {
     category: "",
     status: "",
     quantity: "",
+    warehouse_name: "",
   });
 
   const handleInputChange = (e) => {
@@ -27,10 +51,35 @@ const EditInventory = () => {
 
   const apiURL = process.env.REACT_APP_DATA;
 
+  //   get clicked item details for placeholders
+  useEffect(() => {
+    if (inventoryid) {
+      const fetchData = async () => {
+        try {
+          const { data } = await axios.get(
+            `${apiURL}/inventories/${inventoryid}`
+          );
+          setDefaultData(data);
+          console.log(data);
+        } catch (error) {
+          console.log("Error:", error);
+        }
+      };
+      fetchData();
+    }
+  }, []);
+
+  //   handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .put(`${apiURL}/inventories/${id}`, { inventoryData })
+      .put(`${apiURL}/inventories/${inventoryid}`, {
+        item_name: inventoryData.item_name,
+        description: inventoryData.description,
+        category: inventoryData.category,
+        status: inventoryData.status,
+        quantity: inventoryData.quantity,
+      })
       .then((result) => console.log(result))
       .catch((e) => console.log(e));
   };
@@ -48,42 +97,46 @@ const EditInventory = () => {
     "edit-inventory__quantity--hide"
   );
 
-  //   pull warehouse information
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(`${apiURL}/warehouses`);
-        setWarehouseData(data);
-      } catch (error) {
-        console.log("Error:", error);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
     <div className="edit-inventory">
       <div className="edit-inventory__header">
-        <Link to={"/warehouselist"}>
+        <Link to={"/inventorylist"}>
           <img src={BackArrow}></img>
         </Link>
         <h1 className="edit-inventory__title">Edit Inventory Item</h1>
       </div>
       <div className="edit-inventory__border"></div>
-      <form className="edit-inventory__form">
+      <form className="edit-inventory__form" onSubmit={handleSubmit}>
         <div className="edit-inventory__details">
           <h2 className="edit-inventory__sub-title">Item Details</h2>
           <label>
             Item Name
-            <input type="text"></input>
+            <input
+              type="text"
+              value={inventoryData.item_name}
+              name="item_name"
+              onChange={handleInputChange}
+              placeholder={defaultData[0].item_name}
+            ></input>
           </label>
           <label className="edit-inventory__label">
             Description
-            <textarea></textarea>
+            <textarea
+              value={inventoryData.description}
+              onChange={handleInputChange}
+              name="description"
+              placeholder={defaultData[0].description}
+            ></textarea>
           </label>
           <label className="edit-inventory__label">
             Category
-            <select id="category" name="category">
+            <select
+              id="category"
+              name="category"
+              value={inventoryData.category}
+              onChange={handleInputChange}
+              defaultValue={defaultData[0].category}
+            >
               <option value="accessories">Accessories</option>
               <option value="apparel">Apparel</option>
               <option value="electronics">Electronics</option>
@@ -102,7 +155,7 @@ const EditInventory = () => {
                 type="radio"
                 id="instock"
                 name="stock"
-                value="instock"
+                value={inventoryData.status}
                 className="edit-inventory__radio"
                 onClick={showQuantity}
               ></input>
@@ -113,7 +166,7 @@ const EditInventory = () => {
                 type="radio"
                 id="outstock"
                 name="stock"
-                value="outstock"
+                value={inventoryData.status}
                 className="edit-inventory__radio"
                 onClick={handleQuantity}
               ></input>
@@ -122,16 +175,22 @@ const EditInventory = () => {
           </div>
           <label className={quantityClass}>
             Quantity
-            <input type="number"></input>
+            <input
+              type="number"
+              value={inventoryData.quantity}
+              onChange={handleInputChange}
+              name="quantity"
+            ></input>
           </label>
           <label>
             Warehouse
-            <select>
+            <select
+              onChange={handleInputChange}
+              name="warehouse_name"
+              value={inventoryData.warehouse_name}
+            >
               {warehouseData.map((warehouse) => (
-                <option
-                  value={warehouse.warehouse_name}
-                  key={warehouse.warehouse_id}
-                >
+                <option value={warehouse.warehouse_name}>
                   {warehouse.warehouse_name}
                 </option>
               ))}

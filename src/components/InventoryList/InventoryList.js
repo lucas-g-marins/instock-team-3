@@ -51,6 +51,7 @@ function InventoryList({}) {
           status={inventory.status}
           quantity={inventory.quantity}
           warehouse={inventory.warehouse_id}
+          id={inventory.id}
         />
       ))}
     </div>

@@ -33,7 +33,10 @@ function App() {
         />
         <Route path={"/InventoryList"} element={<InventoryList />} />
         <Route path={"/AddWarehouse"} element={<AddWarehouse />} />
-        <Route path={"/EditInventory"} element={<EditInventory />} />
+        <Route
+          path={"/EditInventory/:inventoryid"}
+          element={<EditInventory />}
+        />
       </Routes>
       <Footer />
     </section>
