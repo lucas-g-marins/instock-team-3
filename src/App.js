@@ -1,4 +1,7 @@
-import React from "react";
+
+import React from 'react';
+import EditWarehouse from './components/EditWarehouse/EditWarehouse'; // Import the EditWarehouse component
+
 
 import "./App.scss";
 
