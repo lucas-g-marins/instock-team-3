@@ -2,6 +2,10 @@
 
 .application {
   background-color: variables.$light-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .App {

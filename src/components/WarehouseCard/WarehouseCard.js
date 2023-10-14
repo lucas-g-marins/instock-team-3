@@ -52,7 +52,9 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
       {/* tablet and desktop */}
       <div className="warehousecard__info--tablet-desktop">
         <div className="warehousecard__name-container">
-          <h3 className="warehousecard__city">{city}</h3>
+          <Link to={`/WarehouseDetails/${id}`}>
+            <h3 className="warehousecard__city">{city}</h3>
+          </Link>
           <img src={ChevronIcon}></img>
         </div>
         <h4 className="warehousecard__copy warehousecard__address">
