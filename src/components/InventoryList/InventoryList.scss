@@ -1,0 +1,269 @@
+/* InventoryList.scss */
+@media (max-width: 767px) {
+  .inventory-list {
+    display: flex;
+    justify-content: center;
+    background-color: #f7f8f9;
+  }
+
+  .inventory-card {
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.5);
+    background-color: #ffffff;
+    margin-top: 100px;
+    width: 300px;
+    margin-left: 8px;
+
+    &__title {
+      font-size: 24px;
+      margin-left: 20px; // Set styles for the title
+    }
+
+    &__search-bar {
+      margin: 20px;
+      display: flex;
+      align-items: center;
+      width: 90%;
+
+      &__input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #bdc5d5;
+        border-radius: 50px; // Set styles for the search bar input
+      }
+
+      &__icon-container {
+        position: absolute;
+        left: 290px;
+        top: 32%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &__add-button {
+      background-color: #2e66e5;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+      width: 90%;
+      margin-left: 20px;
+
+      &:hover {
+        background-color: #232940; // Set styles for the "Add New Item" button
+      }
+    }
+
+    &__divider {
+      border-top: 1px solid #bdc5d5;
+      margin-top: 20px; // Set styles for dividers
+    }
+  }
+
+  /* Styles for the grid container and items */
+  .inventory-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* Styles for each item inside the grid */
+  .inventory-list .item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  /* Styles for the content container */
+  .inventory-list .item .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space between;
+    width: 100%;
+  }
+
+  /* Styles for the left column */
+  .inventory-list .item .left-column {
+    width: 50%;
+    padding-right: 10px;
+  }
+
+  /* Styles for the right column */
+  .inventory-list .item .right-column {
+    width: 50%;
+  }
+
+  /* Styles for the actions */
+  .inventory-list .item .actions {
+    width: 100%;
+  }
+  .item-label {
+    color: #5c667e;
+    font-size: 12px;
+  }
+
+  .item-value {
+    color: #000000;
+    font-size: 12px;
+  }
+
+  .action-button {
+    color: #fff;
+    background-color: #2e66e5;
+  }
+
+  .action-button:hover {
+    background-color: #0056b3;
+  }
+
+  .inventory-list .item .left-column {
+    padding-bottom: 20px;
+  }
+
+  .inventory-list .item .actions .left-column {
+    padding-bottom: 20px;
+  }
+  .content {
+    margin: 10px;
+  }
+
+  .blue {
+    color: #2e66e5;
+  }
+  /* Define the color styles for "in stock" and "out of stock" */
+  .in-stock {
+    color: #158463;
+    background-color: #f7f8f9;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .out-of-stock {
+    color: #c94515;
+    background-color: #f7f8f9;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 12px;
+  }
+  .custom-actions {
+    color: #fff; /* Text color for the ACTIONS label */
+
+    .action-icon {
+      text-decoration: none;
+    }
+
+    .edit-icon {
+      float: right;
+      margin-left: 10px;
+    }
+
+    .delete-icon {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .action-icon img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+/* Media query for tablets (e.g., iPads) */
+@media (min-width: 768px) {
+  .inventory-card {
+    width: 700px;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.5);
+    background-color: #ffffff;
+    margin-left: 8px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  .inventory-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-left,
+  .nav-center,
+  .nav-right {
+    flex: 1;
+  }
+  .inventory-card .inventory-card__search-bar__input {
+    padding: 8px;
+    border: 1px solid #bdc5d5;
+    border-radius: 50px;
+    margin-left: 190px;
+  }
+
+  .inventory-card__search-bar__icon-container {
+    position: absolute;
+    left: 555px;
+    top: 14%;
+    transform: translateY(-50%);
+  }
+  .inventory-card__add-button {
+    width: 20%;
+    background-color: #2e66e5;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #232940;
+    }
+  }
+  .inventory-list .item {
+    display: flex;
+    flex-direction: column; /* Display item details in a column for tablets */
+
+    .content {
+      display: flex;
+      flex-direction: row; /* Display item labels and values in a row for tablets */
+
+      .left-column,
+      .right-column {
+        width: 50%; /* Divide the content into two equal columns */
+
+        .item-label,
+        .item-value {
+          width: 100%; /* Ensure each label and value spans the entire width of its column */
+        }
+      }
+
+      .item-label,
+      .item-value {
+        flex: 1; /* Make .item-label and .item-value share the same horizontal space */
+
+        /* Add some spacing between label-value pairs */
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+/* Media query for desktop screens */
+@media (min-width: 1024px) {
+  .inventory-card {
+    // Styles for desktop screens
+  }
+}

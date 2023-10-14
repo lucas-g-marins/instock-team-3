@@ -109,11 +109,10 @@
 
   .edit-warehouse__divider-second {
     // Vertical divider styles for the tablet section
-    width: 1px; 
-    height: 470px; 
-    background-color: #bdc5d5; 
+    width: 1px;
+    height: 470px;
+    background-color: #bdc5d5;
     margin-left: 20px;
-
   }
 
   .edit-warehouse-card {
@@ -123,13 +122,13 @@
   .edit-warehouse__buttons {
     // Adjust button styles for tablet here
     display: flex;
-    flex-direction: row; 
-    align-items: center; 
+    flex-direction: row;
+    align-items: center;
     width: 150px;
-    margin-left: auto; 
+    margin-left: auto;
 
     button {
-      margin-top: 20px; 
+      margin-top: 20px;
     }
   }
 
@@ -170,17 +169,16 @@
 @media (min-width: 1024px) {
   // Desktop Styles
 
-  .edit-warehouse__title{
+  .edit-warehouse__title {
     font-size: 34px;
   }
 
   .edit-warehouse__divider-second {
     // Vertical divider styles for the tablet section
-    width: 1px; 
-    height: 490px; 
-    background-color: #bdc5d5; 
+    width: 1px;
+    height: 490px;
+    background-color: #bdc5d5;
     margin-left: 20px;
-
   }
 
   .edit-warehouse-card {
@@ -190,13 +188,13 @@
   .edit-warehouse__buttons {
     // Adjust button styles for tablet here
     display: flex;
-    flex-direction: row; 
-    align-items: center; 
+    flex-direction: row;
+    align-items: center;
     width: 150px;
-    margin-left: auto; 
+    margin-left: auto;
 
     button {
-      margin-top: 20px; 
+      margin-top: 20px;
     }
   }
 
@@ -234,5 +232,3 @@
     }
   }
 }
-
-
