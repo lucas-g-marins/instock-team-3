@@ -40,16 +40,15 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
         </div>
       </div>
       <div className="warehousecard__icons">
-        <DeleteWarehouse
+        {/* <DeleteWarehouse
           warehouseid={id}
           warehousename={city}
           icon={<img src={DeleteIcon}></img>}
-        />
+        /> */}
         {/* <img src={DeleteIcon}></img> */}
         <Link to={`/EditWarehouse/${id}`}>
           <img src={EditIcon}></img>
         </Link>
-
       </div>
       {/* tablet and desktop */}
       <div className="warehousecard__info--tablet-desktop">
@@ -66,13 +65,13 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
           <h4 className="warehousecard__copy">{email}</h4>
         </div>
         <div className="warehousecard__icons--tablet-desktop">
-          <DeleteWarehouse
+          {/* <DeleteWarehouse
             warehouseid={id}
             warehousename={city}
             icon={<img src={DeleteIcon}></img>}
-          />
+          /> */}
           {/* <img src={DeleteIcon}></img> */}
-         <Link to={`/EditWarehouse/${id}`}>
+          <Link to={`/EditWarehouse/${id}`}>
             <img src={EditIcon}></img>
           </Link>
         </div>

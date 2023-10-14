@@ -1,0 +1,93 @@
+@use "../../styles/partials/typography";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.edit-inventory {
+  background-color: variables.$white;
+  width: 90%;
+  margin: auto;
+  border-radius: 1.25rem;
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    margin: auto;
+  }
+
+  &__border {
+    border-bottom: 1px solid variables.$cloud;
+  }
+
+  &__sub-title {
+    padding: 1rem 0;
+  }
+
+  &__details {
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__availability {
+    padding: 0 1rem;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__stock {
+    display: flex;
+  }
+
+  &__instock {
+    display: flex;
+    align-items: center;
+    padding-right: 3rem;
+  }
+
+  &__outstock {
+    display: flex;
+    align-items: center;
+  }
+
+  &__radio {
+    width: 1rem;
+    margin-right: 1rem;
+  }
+
+  &__quantity {
+    &--hide {
+      display: none;
+    }
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1rem;
+
+    @include mixins.tablet {
+      padding-top: 2rem;
+    }
+    @include mixins.desktop {
+      padding-top: 2rem;
+    }
+  }
+
+  &__cancel {
+    width: 40%;
+    background-color: #fff;
+    border: 1px solid variables.$cloud;
+    color: #000;
+  }
+
+  &__save {
+    width: 40%;
+    background-color: variables.$instock-indigo;
+  }
+}
