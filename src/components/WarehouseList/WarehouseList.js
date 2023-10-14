@@ -6,7 +6,7 @@ import SearchIcon from "../../assets/icons/search-24px.svg";
 
 function WarehouseList({}) {
   const [warehouseData, setWarehouseData] = useState([]);
-
+  console.log(process.env);
   const apiURL = process.env.REACT_APP_DATA;
 
   useEffect(() => {
