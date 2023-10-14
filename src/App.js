@@ -10,6 +10,7 @@ import {
 // pages component(s) import
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
+import { WarehouseDetails } from "./components/WarehouseDetails/WarehouseDetails";
 import InventoryList from "./components/InventoryList/InventoryList";
 // import WarehouseCard from "./components/WarehouseCard/WarehouseCard";
 // import InventoryCard from "./components/InventoryCard/InventoryCard";
@@ -22,11 +23,9 @@ function App() {
   return (
     <section className="application">
       <Header />
-
-      {/* <WarehouseList /> */}
       <Routes>
         <Route path={"/WarehouseList"} element={<WarehouseList />} />
-        {/* <Route path={"/WarehouseCard"} element={<WarehouseCard />} /> */}
+        <Route path={"/WarehouseDetails/:id"} element={<WarehouseDetails />} />       
         <Route path={"/EditWarehouse/:id"} element={<EditWarehouse />} />
         <Route path={"/InventoryList"} element={<InventoryList />} />
         <Route path={"/AddWarehouse"} element={<AddWarehouse />} />
