@@ -83,8 +83,6 @@ const EditInventory = () => {
     (warehouse) => warehouse.warehouse_name === lookUpWarehouse
   );
 
-  console.log(findWarehouse.id);
-
   //   handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -124,95 +122,99 @@ const EditInventory = () => {
       </div>
       <div className="edit-inventory__border"></div>
       <form className="edit-inventory__form" onSubmit={handleSubmit}>
-        <div className="edit-inventory__details">
-          <h2 className="edit-inventory__sub-title">Item Details</h2>
-          <label>
-            Item Name
-            <input
-              type="text"
-              value={inventoryData.item_name}
-              name="item_name"
-              onChange={handleInputChange}
-              placeholder={defaultData[0].item_name}
-            ></input>
-          </label>
-          <label className="edit-inventory__label">
-            Description
-            <textarea
-              value={inventoryData.description}
-              onChange={handleInputChange}
-              name="description"
-              placeholder={defaultData[0].description}
-            ></textarea>
-          </label>
-          <label className="edit-inventory__label">
-            Category
-            <select
-              id="category"
-              name="category"
-              value={inventoryData.category}
-              onChange={handleInputChange}
-              defaultValue={defaultData[0].category}
-            >
-              <option value="accessories">Accessories</option>
-              <option value="apparel">Apparel</option>
-              <option value="electronics">Electronics</option>
-              <option value="gear">Gear</option>
-              <option value="health">Health</option>
-            </select>
-          </label>
-        </div>
-        <div className="edit-inventory__border"></div>
-        <div className="edit-inventory__availability">
-          <h2 className="edit-inventory__sub-title">Item Availability</h2>
-          <h3>Status</h3>
-          <div className="edit-inventory__stock">
-            <div className="edit-inventory__instock">
+        <div className="edit-inventory__question-container">
+          <div className="edit-inventory__details">
+            <h2 className="edit-inventory__sub-title">Item Details</h2>
+            <label>
+              Item Name
               <input
-                type="radio"
-                id="instock"
-                name="stock"
-                value={inventoryData.status}
-                className="edit-inventory__radio"
-                onClick={showQuantity}
+                type="text"
+                value={inventoryData.item_name}
+                name="item_name"
+                onChange={handleInputChange}
+                placeholder={defaultData[0].item_name}
               ></input>
-              <label>In Stock</label>
-            </div>
-            <div className="edit-inventory__outstock">
-              <input
-                type="radio"
-                id="outstock"
-                name="stock"
-                value={inventoryData.status}
-                className="edit-inventory__radio"
-                onClick={handleQuantity}
-              ></input>
-              <label>Out Of Stock</label>
-            </div>
+            </label>
+            <label className="edit-inventory__label">
+              Description
+              <textarea
+                value={inventoryData.description}
+                onChange={handleInputChange}
+                name="description"
+                placeholder={defaultData[0].description}
+              ></textarea>
+            </label>
+            <label className="edit-inventory__label">
+              Category
+              <select
+                id="category"
+                name="category"
+                value={inventoryData.category}
+                onChange={handleInputChange}
+                defaultValue={defaultData[0].category}
+              >
+                <option value="accessories">Accessories</option>
+                <option value="apparel">Apparel</option>
+                <option value="electronics">Electronics</option>
+                <option value="gear">Gear</option>
+                <option value="health">Health</option>
+              </select>
+            </label>
           </div>
-          <label className={quantityClass}>
-            Quantity
-            <input
-              type="number"
-              value={inventoryData.quantity}
-              onChange={handleInputChange}
-              name="quantity"
-            ></input>
-          </label>
-          <label>
-            Warehouse
-            <select
-              onChange={handleWarehouseChange}
-              name="warehouse_name"
-              value={findWarehouse}
-            >
-              {warehouseData.map((warehouse) => (
-                <option value={warehouse.warehouse_name}>
-                  {warehouse.warehouse_name}
-                </option>
-              ))}
-            </select>
-          </label>
+          <div className="edit-inventory__border"></div>
+          <div className="edit-inventory__availability">
+            <h2 className="edit-inventory__sub-title">Item Availability</h2>
+            <h3>Status</h3>
+            <div className="edit-inventory__stock">
+              <div className="edit-inventory__instock">
+                <input
+                  type="radio"
+                  id="instock"
+                  name="stock"
+                  value={inventoryData.status}
+                  className="edit-inventory__radio"
+                  onClick={showQuantity}
+                  checked={defaultData[0].status === "In Stock"}
+                ></input>
+                <label>In Stock</label>
+              </div>
+              <div className="edit-inventory__outstock">
+                <input
+                  type="radio"
+                  id="outstock"
+                  name="stock"
+                  value={inventoryData.status}
+                  className="edit-inventory__radio"
+                  onClick={handleQuantity}
+                  checked={defaultData[0].status === "Out of Stock"}
+                ></input>
+                <label>Out Of Stock</label>
+              </div>
+            </div>
+            <label className={quantityClass}>
+              Quantity
+              <input
+                type="number"
+                value={inventoryData.quantity}
+                onChange={handleInputChange}
+                name="quantity"
+              ></input>
+            </label>
+            <label>
+              Warehouse
+              <select
+                onChange={handleWarehouseChange}
+                name="warehouse_name"
+                value={findWarehouse}
+              >
+                {warehouseData.map((warehouse) => (
+                  <option value={warehouse.warehouse_name}>
+                    {warehouse.warehouse_name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
         </div>
         <div className="edit-inventory__footer">
           <button className="edit-inventory__cancel">Cancel</button>
