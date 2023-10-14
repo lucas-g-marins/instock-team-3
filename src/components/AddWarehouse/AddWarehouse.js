@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./AddWarehouse.scss";
 import BackArrow from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function AddWarehouse() {
   // warehouse name
@@ -127,7 +128,9 @@ function AddWarehouse() {
   return (
     <div className="add-warehouse">
       <div className="add-warehouse__header">
-        <img src={BackArrow}></img>
+        <Link to={"/warehouselist"}>
+          <img src={BackArrow}></img>
+        </Link>
         <h1 className="add-warehouse__title">Add New Warehouse</h1>
       </div>
       <form className="add-warehouse__form" onSubmit={handleSubmit}>
