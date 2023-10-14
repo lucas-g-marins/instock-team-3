@@ -3,6 +3,7 @@ import "./WarehouseList.scss";
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import axios from "axios";
 import SearchIcon from "../../assets/icons/search-24px.svg";
+import { useNavigate } from "react-router-dom";
 
 function WarehouseList({}) {
   const [warehouseData, setWarehouseData] = useState([]);
@@ -21,6 +22,12 @@ function WarehouseList({}) {
     fetchData();
   }, []);
 
+  let navigate = useNavigate();
+
+  function goAdd() {
+    navigate("/AddWarehouse");
+  }
+
   return (
     <div className="warehouses">
       <div className="warehouses__header">
@@ -31,7 +38,7 @@ function WarehouseList({}) {
             <img className="warehouses__search-icon" src={SearchIcon}></img>
           </div>
           <button className="warehouses__button">
-            <h3>+ Add New Warehouse</h3>
+            <h3 onClick={goAdd}>+ Add New Warehouse</h3>
           </button>
         </form>
       </div>
