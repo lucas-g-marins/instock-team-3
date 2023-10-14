@@ -53,11 +53,6 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
           <h4 className="inventory-card__copy">
             {warehouseData.warehouse_name}
           </h4>
-
-          {/* <div className="inventory-card__contact-info">
-            <h4 className="inventory-card__copy">{phone}</h4>
-            <h4 className="inventory-card__copy">{email}</h4>
-          </div> */}
         </div>
       </div>
       <div className="inventory-card__icons">
