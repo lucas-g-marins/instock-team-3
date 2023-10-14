@@ -7,14 +7,14 @@ import backIcon from '../../assets/images/arrow_back-24px.svg'; // Import the ic
 const EditWarehouse = () => {
   // State to store form field values
   const [warehouseData, setWarehouseData] = useState({
-    warehouseName: '',
-    address: '',
-    city: '',
-    country: '',
-    contactName: '',
-    position: '',
-    phoneNumber: '',
-    email: '',
+    warehouseName: 'Chicago',
+  address: '3218 Guess Rd',
+  city: 'Chicago',
+  country: 'USA',
+  contactName: 'Jameson Schuppe',
+  position: 'Warehouse Manager',
+  phoneNumber: '+1 (919) 797-2875',
+  email: 'jschuppe@instock.com',
   });
 
   // Handle form field changes
@@ -24,9 +24,33 @@ const EditWarehouse = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Adding logic to send data to the back end
+    try {
+      const response = await fetch('/api/warehouses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(warehouseData),
+      });
+
+      if (response.status === 201) {
+        // Successful response, handle it accordingly
+        const newWarehouse = await response.json();
+        // You can update your UI with the new warehouse data or display a success message
+      } else if (response.status === 400) {
+        // Handle validation error (e.g., missing or invalid data)
+        const errorResponse = await response.json();
+        // You can display the error message to the user
+      } else {
+        // Handle other error cases (e.g., server error)
+        // You can display an error message to the user
+      }
+    } catch (error) {
+      // Handle any unexpected errors
+      console.error(error);
+    }
   };
 
   return (
@@ -38,6 +62,7 @@ const EditWarehouse = () => {
             <h1 className="edit-warehouse__title">Edit Warehouse</h1>
           </div>
           <hr className="edit-warehouse__divider" />
+          <div className='edit-warehouse__items'>
           <div className="edit-warehouse__section">
             <h2 className="edit-warehouse__section-title">Warehouse Details</h2>
             <form onSubmit={handleSubmit}>
@@ -87,7 +112,7 @@ const EditWarehouse = () => {
               </div>
             </form>
           </div>
-          <hr className="edit-warehouse__divider" />
+          <hr className="edit-warehouse__divider edit-warehouse__divider-second" />
           <div className="edit-warehouse__section">
             <h2 className="edit-warehouse__section-title">Contact Details</h2>
             <form onSubmit={handleSubmit}>
@@ -136,10 +161,11 @@ const EditWarehouse = () => {
                 />
               </div>
             </form>
-            <div className="edit-warehouse__buttons">
-              <button className="edit-warehouse__save-button">Cancel</button>
-              <button className="edit-warehouse__cancel-button">Save</button>
-            </div>
+          </div>
+          </div>
+          <div className="edit-warehouse__buttons">
+              <button className="edit-warehouse__cancel-button">Cancel</button>
+              <button className="edit-warehouse__save-button">Save</button>
           </div>
         </div>
       </div>
