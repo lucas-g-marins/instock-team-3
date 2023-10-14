@@ -17,6 +17,9 @@ const EditInventory = () => {
       item_name: "",
       description: "",
       category: "",
+      status: "",
+      quantity: "",
+      warehouse_name: "",
     },
   ]);
 
@@ -69,11 +72,25 @@ const EditInventory = () => {
     }
   }, []);
 
+  //   function to find warehouse id
+  const handleWarehouseChange = (e) => {
+    setLookUpWarehouse(e.target.value);
+  };
+
+  const [lookUpWarehouse, setLookUpWarehouse] = useState("The Jersey");
+
+  const findWarehouse = warehouseData.find(
+    (warehouse) => warehouse.warehouse_name === lookUpWarehouse
+  );
+
+  console.log(findWarehouse.id);
+
   //   handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
       .put(`${apiURL}/inventories/${inventoryid}`, {
+        warehouse_id: findWarehouse.id,
         item_name: inventoryData.item_name,
         description: inventoryData.description,
         category: inventoryData.category,
@@ -185,9 +202,9 @@ const EditInventory = () => {
           <label>
             Warehouse
             <select
-              onChange={handleInputChange}
+              onChange={handleWarehouseChange}
               name="warehouse_name"
-              value={inventoryData.warehouse_name}
+              value={findWarehouse}
             >
               {warehouseData.map((warehouse) => (
                 <option value={warehouse.warehouse_name}>
