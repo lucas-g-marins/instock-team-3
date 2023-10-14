@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
-import EditWarehouse from "../EditWarehouse/EditWarehouse";
 
 function WarehouseCard({ city, address, name, phone, email, id }) {
   return (
@@ -58,7 +57,9 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
         </div>
         <div className="warehousecard__icons--tablet-desktop">
           <img src={DeleteIcon}></img>
-          <img src={EditIcon}></img>
+          <Link to={`/EditWarehouse/${id}`}>
+            <img src={EditIcon}></img>
+          </Link>
         </div>
       </div>
     </div>
