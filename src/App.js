@@ -22,7 +22,7 @@ function App() {
     <section className="application">
       <Header />
       <Routes>
-        <Route path={"/WarehouseList"} element={<WarehouseList />} />
+        <Route path={"/"} element={<WarehouseList />} />
         <Route path={"/WarehouseCard"} element={<WarehouseCard />} />
         <Route path={"/EditWarehouse"} element={<EditWarehouse />} />
         <Route path={"/AddWarehouse"} element={<AddWarehouse />} />

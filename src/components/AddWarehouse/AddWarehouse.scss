@@ -19,12 +19,32 @@
     padding-left: 0.5rem;
   }
 
+  &__form {
+    @include mixins.tablet {
+      display: flex;
+    }
+
+    @include mixins.desktop {
+      display: flex;
+    }
+  }
+
   &__details {
     padding: 1rem 1rem;
   }
 
   &__border {
     border-bottom: 1px solid variables.$cloud;
+
+    @include mixins.tablet {
+      border-left: 1px solid variables.$cloud;
+      margin: 1rem 0 3rem 0;
+    }
+
+    @include mixins.desktop {
+      border-left: 1px solid variables.$cloud;
+      margin: 1rem 0 4rem 0;
+    }
   }
 
   &__contact-details {
@@ -36,6 +56,13 @@
     display: flex;
     justify-content: space-evenly;
     padding-top: 1rem;
+
+    @include mixins.tablet {
+      padding-top: 2rem;
+    }
+    @include mixins.desktop {
+      padding-top: 2rem;
+    }
   }
 
   &__cancel-btn {
@@ -48,5 +75,9 @@
   &__add-btn {
     width: 40%;
     background-color: variables.$instock-indigo;
+  }
+
+  &__error {
+    border: 1px solid variables.$red;
   }
 }
