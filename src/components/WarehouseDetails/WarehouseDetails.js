@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import axios from "axios";
 
-
 export function WarehouseDetails({}) {
   const { id } = useParams();
   const [warehouseData, setWarehouseData] = useState([]);

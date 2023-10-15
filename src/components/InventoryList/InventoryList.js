@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./InventoryList.scss";
 import axios from "axios";
+import "./InventoryList.scss";
 import SearchIcon from "../../assets/icons/search-24px.svg";
 import InventoryCard from "../InventoryCard/InventoryCard";
 
@@ -14,6 +14,7 @@ function InventoryList({}) {
       try {
         const { data } = await axios.get(`${apiURL}/inventories`);
         setInventoryData(data);
+        console.log("Inventory Item:", data);
       } catch (error) {
         console.log("Error:", error);
       }
@@ -46,6 +47,7 @@ function InventoryList({}) {
       {inventoryData.map((inventory) => (
         <InventoryCard
           key={inventory.id}
+          id={inventory.id}
           item={inventory.item_name}
           category={inventory.category}
           status={inventory.status}

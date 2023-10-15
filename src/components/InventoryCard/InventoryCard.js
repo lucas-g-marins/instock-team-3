@@ -5,8 +5,9 @@ import DeleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import EditIcon from "../../assets/icons/edit-24px.svg";
 import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import axios from "axios";
+import InventoryDetails from "../InventoryDetails/InventoryDetails";
 
-function InventoryCard({ item_name, category, status, quantity, warehouse }) {
+function InventoryCard({ id, item, category, status, quantity, warehouse }) {
   const apiURL = process.env.REACT_APP_DATA;
 
   useEffect(() => {
@@ -16,6 +17,7 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
           const { data } = await axios.get(`${apiURL}/warehouses/${warehouse}`);
           console.log(data);
           setWarehouseData(data);
+          setInventoryData(data);
         } catch (error) {
           console.log("Error:", error);
         }
@@ -26,6 +28,8 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
 
   const [warehouseData, setWarehouseData] = useState([]);
 
+  const [inventoryData, setInventoryData] = useState([]);
+
   return (
     <div className="inventory-card">
       <div className="inventory-card__info">
@@ -34,8 +38,17 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
             INVENTORY ITEM
           </h4>
           <div className="inventory-card__name-container">
-            <h3 className="inventory-card__item">{item_name}</h3>
-            <img src={ChevronIcon}></img>
+            {/* {inventoryData.map((inventory) => ( */}
+            <Link to={`/InventoryDetails/${id}`}>
+              {/* <InventoryDetails
+                inventoryid={inventory.id}
+                itemname={inventory.item}
+                icon={<img src={ChevronIcon} alt="Chevron Icon" />}
+              /> */}
+              {/* ))} */}
+              <h3 className="inventory-card__item">{item}</h3>
+              <img src={ChevronIcon} alt="Chevron Icon" />
+            </Link>
           </div>
           <h4 className="inventory-card__copy inventory-card__title">
             CATEGORY
@@ -51,7 +64,7 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
             WAREHOUSE
           </h4>
           <h4 className="inventory-card__copy">
-            {warehouseData.warehouse_name}
+            {warehouseData[0]?.warehouse_name}
           </h4>
         </div>
       </div>
@@ -62,8 +75,10 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
       {/* tablet and desktop */}
       <div className="inventory-card__info--tablet-desktop">
         <div className="inventory-card__name-container">
-          <h3 className="inventory-card__city">{item_name}</h3>
-          <img src={ChevronIcon}></img>
+          <Link to={`/InventoryDetails/${id}`}>
+            <h3 className="inventory-card__city">{item}</h3>
+            <img src={ChevronIcon}></img>
+          </Link>
         </div>
         <h4 className="inventory-card__copy inventory-card__address">
           {category}
@@ -72,7 +87,7 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
         <div className="inventory-card__contact-info">
           <h4 className="inventory-card__copy">{quantity}</h4>
           <h4 className="inventory-card__copy">
-            {warehouseData.warehouse_name}
+            {warehouseData[0]?.warehouse_name}
           </h4>
         </div>
         <div className="warehousecard__icons--tablet-desktop">
@@ -81,7 +96,6 @@ function InventoryCard({ item_name, category, status, quantity, warehouse }) {
         </div>
       </div>
     </div>
-    //  </Link>
   );
 }
 
