@@ -18,6 +18,7 @@ import EditWarehouse from "./components/EditWarehouse/EditWarehouse"; // Import 
 import Footer from "./components/Footer/Footer"; // Import the footer component
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import InventoryCard from "./components/InventoryCard/InventoryCard";
+import EditInventory from "./components/EditInventory/EditInventory";
 
 function App() {
   return (
@@ -25,10 +26,17 @@ function App() {
       <Header />
       <Routes>
         <Route path={"/WarehouseList"} element={<WarehouseList />} />
-        <Route path={"/WarehouseDetails/:id"} element={<WarehouseDetails />} />       
-        <Route path={"/EditWarehouse/:id"} element={<EditWarehouse />} />
+        <Route path={"/WarehouseDetails/:id"} element={<WarehouseDetails />} />
+        <Route
+          path={"/EditWarehouse/:warehouseid"}
+          element={<EditWarehouse />}
+        />
         <Route path={"/InventoryList"} element={<InventoryList />} />
         <Route path={"/AddWarehouse"} element={<AddWarehouse />} />
+        <Route
+          path={"/EditInventory/:inventoryid"}
+          element={<EditInventory />}
+        />
       </Routes>
       <Footer />
     </section>
