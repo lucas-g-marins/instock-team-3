@@ -21,8 +21,34 @@ import InventoryCard from "./components/InventoryCard/InventoryCard";
 import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 import EditInventory from "./components/EditInventory/EditInventory";
 import AddInventory from "./components/AddInventory/AddInventory";
+import DeleteInventoryModal from "./components/DeleteInventory/DeleteInventory";
 
 function App() {
+   const [isDeleteInventoryModalOpen, setDeleteInventoryModalOpen] =
+    useState(false);
+  const [itemNameToDelete, setItemNameToDelete] = useState(""); // Initialize the item name state
+
+  const openDeleteInventoryModal = (itemName) => {
+    setItemNameToDelete(itemName); // Set the item name before opening the modal
+    setDeleteInventoryModalOpen(true);
+  };
+
+  const closeDeleteInventoryModal = () => {
+    setItemNameToDelete(""); // Clear the item name when closing the modal
+    setDeleteInventoryModalOpen(false);
+  };
+
+  const handleDelete = () => {
+    // Handle the deletion logic here, e.g., make an API request.
+    // Once deleted, close the Delete Inventory modal.
+    closeDeleteInventoryModal();
+  };
+
+  const handleCancel = () => {
+    // Implement the cancel action here, such as resetting any form fields.
+    closeDeleteInventoryModal();
+  };
+  
   return (
     <section className="application">
       <Header />
@@ -44,6 +70,13 @@ function App() {
           path={"/InventoryDetails/:inventoryid"}
           element={<InventoryDetails />}
         />
+              <DeleteInventoryModal
+        isOpen={isDeleteInventoryModalOpen}
+        onClose={closeDeleteInventoryModal}
+        onDelete={handleDelete}
+        onCancel={handleCancel}
+        itemName={itemNameToDelete} // Pass the item name as a prop
+      />
       </Routes>
       <Footer />
     </section>
