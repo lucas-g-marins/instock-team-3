@@ -72,11 +72,23 @@
   &__name {
     width: 15%;
   }
+
+  &__quantity {
+    @include mixins.tablet {
+      width: 40%;
+    }
+    @include mixins.desktop {
+      width: 50%;
+    }
+  }
+
   &__contact-info {
     @include mixins.tablet {
+      display: flex;
       width: 30%;
     }
     @include mixins.desktop {
+      display: flex;
       width: 30%;
     }
   }

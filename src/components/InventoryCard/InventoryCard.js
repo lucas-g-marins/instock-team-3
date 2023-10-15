@@ -69,8 +69,12 @@ function InventoryCard({ id, item, category, status, quantity, warehouse }) {
         </div>
       </div>
       <div className="inventory-card__icons">
-        <img src={DeleteIcon}></img>
-        <img src={EditIcon}></img>
+        <Link to={`/DeleteInventory`}>
+          <img src={DeleteIcon}></img>
+        </Link>
+        <Link to={`/EditInventory/${id}`}>
+          <img src={EditIcon}></img>
+        </Link>
       </div>
       {/* tablet and desktop */}
       <div className="inventory-card__info--tablet-desktop">
@@ -85,14 +89,18 @@ function InventoryCard({ id, item, category, status, quantity, warehouse }) {
         </h4>
         <h4 className="inventory-card__copy inventory-card__name">{status}</h4>
         <div className="inventory-card__contact-info">
-          <h4 className="inventory-card__copy">{quantity}</h4>
-          <h4 className="inventory-card__copy">
+          <h4 className="inventory-card__quantity">{quantity}</h4>
+          <h4 className="inventory-card__warehouse">
             {warehouseData[0]?.warehouse_name}
           </h4>
         </div>
         <div className="warehousecard__icons--tablet-desktop">
-          <img src={DeleteIcon}></img>
-          <img src={EditIcon}></img>
+          <Link to={`/DeleteInventory`}>
+            <img src={DeleteIcon}></img>
+          </Link>
+          <Link to={`/EditInventory/${id}`}>
+            <img src={EditIcon}></img>
+          </Link>
         </div>
       </div>
     </div>

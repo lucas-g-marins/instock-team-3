@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./InventoryDetails.scss";
 import InventoryCard from "../InventoryCard/InventoryCard";
 import axios from "axios";
+import backIcon from "../../assets/images/arrow_back-24px.svg";
+import { Link } from "react-router-dom";
 
-function InventoryDetails() {
+export function InventoryDetails() {
   const { id } = useParams();
   const [inventoryData, setInventoryData] = useState([]);
 
@@ -26,10 +29,17 @@ function InventoryDetails() {
     <div className="inventories">
       <div>
         <div className="inventories__header">
-          {/* <h1 className="inventories__title">{inventoryData[0].inventories}</h1> */}
+          <Link to={`/inventorylist`}>
+            <img
+              src={backIcon}
+              alt="Back Icon"
+              className="edit-warehouse__back-icon"
+            />
+          </Link>
+          <h1 className="inventories__title">{inventoryData.item_name}</h1>
           <form className="inventories__form">
             <button className="inventories__button">
-              {/* <h3>FIX ADD ITEM NAME</h3> */}
+              <h3>Edit</h3>
             </button>
           </form>
         </div>
