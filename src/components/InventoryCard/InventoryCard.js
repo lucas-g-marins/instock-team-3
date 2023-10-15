@@ -7,7 +7,9 @@ import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 import axios from "axios";
 import InventoryDetails from "../InventoryDetails/InventoryDetails";
 
+
 function InventoryCard({ id, item, category, status, quantity, warehouse }) {
+
   const apiURL = process.env.REACT_APP_DATA;
 
   useEffect(() => {
@@ -70,7 +72,9 @@ function InventoryCard({ id, item, category, status, quantity, warehouse }) {
       </div>
       <div className="inventory-card__icons">
         <img src={DeleteIcon}></img>
-        <img src={EditIcon}></img>
+        <Link to={`/EditInventory/${id}`}>
+          <img src={EditIcon}></img>
+        </Link>
       </div>
       {/* tablet and desktop */}
       <div className="inventory-card__info--tablet-desktop">
@@ -92,7 +96,9 @@ function InventoryCard({ id, item, category, status, quantity, warehouse }) {
         </div>
         <div className="warehousecard__icons--tablet-desktop">
           <img src={DeleteIcon}></img>
-          <img src={EditIcon}></img>
+          <Link to={`/EditInventory/${id}`}>
+            <img src={EditIcon}></img>
+          </Link>
         </div>
       </div>
     </div>

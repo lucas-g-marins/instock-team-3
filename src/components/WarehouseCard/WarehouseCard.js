@@ -8,7 +8,6 @@ import ChevronIcon from "../../assets/icons/chevron_right-24px.svg";
 
 function WarehouseCard({ city, address, name, phone, email, id }) {
   return (
-    // <Link to={`/warehouse/${id}`}>
     <div className="warehousecard">
       <div className="warehousecard__info">
         <div className="warehousecard__location">
@@ -45,16 +44,16 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
           warehousename={city}
           icon={<img src={DeleteIcon}></img>}
         />
-        {/* <img src={DeleteIcon}></img> */}
         <Link to={`/EditWarehouse/${id}`}>
           <img src={EditIcon}></img>
         </Link>
-
       </div>
       {/* tablet and desktop */}
       <div className="warehousecard__info--tablet-desktop">
         <div className="warehousecard__name-container">
-          <h3 className="warehousecard__city">{city}</h3>
+          <Link to={`/WarehouseDetails/${id}`}>
+            <h3 className="warehousecard__city">{city}</h3>
+          </Link>
           <img src={ChevronIcon}></img>
         </div>
         <h4 className="warehousecard__copy warehousecard__address">
@@ -71,8 +70,7 @@ function WarehouseCard({ city, address, name, phone, email, id }) {
             warehousename={city}
             icon={<img src={DeleteIcon}></img>}
           />
-          {/* <img src={DeleteIcon}></img> */}
-         <Link to={`/EditWarehouse/${id}`}>
+          <Link to={`/EditWarehouse/${id}`}>
             <img src={EditIcon}></img>
           </Link>
         </div>

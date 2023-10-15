@@ -3,15 +3,23 @@ import axios from "axios";
 import "./InventoryList.scss";
 import SearchIcon from "../../assets/icons/search-24px.svg";
 import InventoryCard from "../InventoryCard/InventoryCard";
+import { useNavigate } from "react-router-dom";
 
 function InventoryList({}) {
   const [inventoryData, setInventoryData] = useState([]);
 
   const apiURL = process.env.REACT_APP_DATA;
 
+  let navigate = useNavigate();
+
+  function goAdd() {
+    navigate("/AddInventory");
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+
         const { data } = await axios.get(`${apiURL}/inventories`);
         setInventoryData(data);
         console.log("Inventory Item:", data);
@@ -31,7 +39,7 @@ function InventoryList({}) {
             <input type="text" name="search" placeholder="Search..."></input>
             <img className="inventories__search-icon" src={SearchIcon}></img>
           </div>
-          <button className="inventories__button">
+          <button className="inventories__button" onClick={goAdd}>
             <h3>+ Add New Item</h3>
           </button>
         </form>
@@ -53,6 +61,7 @@ function InventoryList({}) {
           status={inventory.status}
           quantity={inventory.quantity}
           warehouse={inventory.warehouse_id}
+          id={inventory.id}
         />
       ))}
     </div>
