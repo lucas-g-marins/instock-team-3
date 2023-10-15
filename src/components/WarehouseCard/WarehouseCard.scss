@@ -1,0 +1,103 @@
+@use "../../styles/partials/typography";
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.warehousecard {
+  border-top: 1px solid variables.$cloud;
+  padding: 0.5rem 0;
+  &:hover {
+    background-color: variables.$cloud;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 0rem;
+    @include mixins.tablet {
+      display: none;
+    }
+    @include mixins.desktop {
+      display: none;
+    }
+
+    &--tablet-desktop {
+      display: none;
+      @include mixins.tablet {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding-left: 10%;
+      }
+      @include mixins.desktop {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding-left: 13%;
+      }
+    }
+  }
+
+  &__copy {
+    padding: 0.25rem 0;
+  }
+
+  &__title {
+    padding: 0.25rem 0;
+
+    @include mixins.tablet {
+      display: none;
+    }
+  }
+
+  &__name-container {
+    display: flex;
+    @include mixins.tablet {
+      width: 20%;
+      align-self: center;
+      justify-content: flex-start;
+    }
+    @include mixins.desktop {
+      width: 18%;
+      align-self: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__city {
+    color: variables.$instock-indigo;
+  }
+
+  &__address {
+    width: 20%;
+  }
+
+  &__name {
+    width: 20%;
+  }
+
+  &__contact-info {
+    @include mixins.tablet {
+     width: 23%;
+    }
+    @include mixins.desktop {
+      width: 23%;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+    @include mixins.tablet {
+      display: none;
+    }
+
+    @include mixins.desktop {
+      display: none;
+    }
+
+    &--tablet-desktop {
+      display: flex;
+    }
+  }
+}

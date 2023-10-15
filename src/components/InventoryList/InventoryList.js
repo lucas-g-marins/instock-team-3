@@ -1,110 +1,69 @@
-import React, { useState, useEffect } from "react";
-import "./InventoryList.scss"; // Import the SCSS
-import searchIcon from "../../assets/images/search-24px.svg"; // Import the search icon image
-import chevronRightIcon from "../../assets/images/chevron_right-24px.svg"; // Import the right chevron icon image
-import editIcon from "../../assets/images/edit-24px.svg"; // Import the edit icon image
-import deleteIcon from "../../assets/images/delete_outline-24px.svg"; // Import the delete icon image
-import dummyData from "./dummyData"; // Import the dummy data
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./InventoryList.scss";
+import SearchIcon from "../../assets/icons/search-24px.svg";
+import InventoryCard from "../InventoryCard/InventoryCard";
+import { useNavigate } from "react-router-dom";
 
-const InventoryCard = () => {
-  const [inventoryData, setInventoryData] = useState(dummyData); // Initialize state variable for inventory data
+function InventoryList({}) {
+  const [inventoryData, setInventoryData] = useState([]);
+
+  const apiURL = process.env.REACT_APP_DATA;
+
+  let navigate = useNavigate();
+
+  function goAdd() {
+    navigate("/AddInventory");
+  }
 
   useEffect(() => {
-    // Use the useEffect hook to fetch data from an API
-    fetch("using dummy data") // Replace with your actual API endpoint
-      .then((response) => response.json()) // Parse the response as JSON
-      .then((data) => setInventoryData(data)) // Update inventoryData state with fetched data
-      .catch((error) => console.error("Error fetching data: " + error)); // Handle errors
-  }, []); // The empty dependency array ensures this runs once after initial render
+    const fetchData = async () => {
+      try {
+        const { data } = await axios.get(`${apiURL}/inventories`);
+        setInventoryData(data);
+        console.log("Inventory Item:", data);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
-    <div className="inventory-list">
-      <div className="inventory-card">
-        <div className="inventory-nav">
-          <h1 className="inventory-card__title">Inventory</h1>
-          <div className="inventory-card__search-bar">
-            <input
-              className="inventory-card__search-bar__input"
-              type="text"
-              placeholder="Search..."
-            />
-            <div className="inventory-card__search-bar__icon-container">
-              <img
-                src={searchIcon}
-                alt="Search Icon"
-                className="inventory-card__search-bar__icon"
-              />
-            </div>
+    <div className="inventories">
+      <div className="inventories__header">
+        <h1 className="inventories__title">Inventory</h1>
+        <form className="inventories__form">
+          <div className="inventories__input-container">
+            <input type="text" name="search" placeholder="Search..."></input>
+            <img className="inventories__search-icon" src={SearchIcon}></img>
           </div>
-          <button className="inventory-card__add-button">+ Add New Item</button>
-        </div>
-        <div className="inventory-list">
-          <div className="grid-container">
-            {inventoryData.map((item) => (
-              <div key={item.id} className="item">
-                <div className="inventory-card__divider"></div>
-
-                <div className="content">
-                  <div className="left-column">
-                    <span className="item-label">INVENTORY ITEM</span>
-                    <br />
-                    <a href="/new-link-url" className="item-link">
-                      <span className="item-value inven blue">
-                        {item.inventoryItem}
-                        <img
-                          src={chevronRightIcon}
-                          alt="Right Arrow"
-                          className="chevron-icon"
-                          style={{ verticalAlign: "middle" }}
-                        />
-                      </span>
-                    </a>
-                    <br />
-                    <br />
-                    <span className="item-label">CATEGORY</span> <br />
-                    <span className="item-value">{item.category}</span>
-                  </div>
-                  <div className="right-column">
-                    <span className="item-label">STATUS</span> <br />
-                    <span
-                      className={
-                        item.status === "In Stock" ? "in-stock" : "out-of-stock"
-                      }
-                    >
-                      {item.status}
-                    </span>
-                    <br />
-                    <br />
-                    <span className="item-label">QTY</span> <br />
-                    <span className="item-value">{item.qty}</span>
-                    <br />
-                    <br />
-                    <span className="item-label">WAREHOUSE</span> <br />
-                    <span className="item-value">{item.warehouse}</span>
-                  </div>
-                </div>
-                <div className="actions custom-actions">
-                  <span className="item-label custom-actions">ACTIONS</span>
-                  <a
-                    href={`/edit-page/${item.id}`}
-                    className="action-icon edit-icon"
-                  >
-                    <img src={editIcon} alt="Edit" />
-                  </a>
-                  <a
-                    href={`/delete-page/${item.id}`}
-                    className="action-icon delete-icon"
-                  >
-                    <img src={deleteIcon} alt="Delete" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+          <button className="inventories__button" onClick={goAdd}>
+            <h3>+ Add New Item</h3>
+          </button>
+        </form>
       </div>
+      <div className="inventories__sections">
+        <h4>INVENTORY ITEM</h4>
+        <h4>CATEGORY</h4>
+        <h4>STATUS</h4>
+        <h4>QTY</h4>
+        <h4>WAREHOUSE</h4>
+        <h4>ACTIONS</h4>
+      </div>
+      {inventoryData.map((inventory) => (
+        <InventoryCard
+          key={inventory.id}
+          id={inventory.id}
+          item={inventory.item_name}
+          category={inventory.category}
+          status={inventory.status}
+          quantity={inventory.quantity}
+          warehouse={inventory.warehouse_id}
+        />
+      ))}
     </div>
   );
-};
+}
 
-export default InventoryCard;
+export default InventoryList;
