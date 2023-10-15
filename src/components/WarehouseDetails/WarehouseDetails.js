@@ -40,7 +40,7 @@ export function WarehouseDetails({}) {
 
         {/* Edit Button Section  */}
 
-        <form className="warehouses__form">
+        <form className="warehouses__forms">
           <button className="warehouses__button">
             <h3>Edit</h3>
           </button>

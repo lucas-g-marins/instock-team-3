@@ -22,7 +22,6 @@ import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 import EditInventory from "./components/EditInventory/EditInventory";
 import AddInventory from "./components/AddInventory/AddInventory";
 
-
 function App() {
   return (
     <section className="application">
@@ -40,6 +39,10 @@ function App() {
         <Route
           path={"/EditInventory/:inventoryid"}
           element={<EditInventory />}
+        />
+        <Route
+          path={"/InventoryDetails/:inventoryid"}
+          element={<InventoryDetails />}
         />
       </Routes>
       <Footer />

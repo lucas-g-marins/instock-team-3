@@ -4,7 +4,7 @@ import InventoryCard from "../InventoryCard/InventoryCard";
 import axios from "axios";
 
 function InventoryDetails() {
-  const { id } = useParams();
+  const { inventoryid } = useParams();
   const [inventoryData, setInventoryData] = useState([]);
 
   const apiURL = process.env.REACT_APP_DATA;
@@ -12,7 +12,9 @@ function InventoryDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`${apiURL}/inventories/${id}`);
+        const { data } = await axios.get(
+          `${apiURL}/inventories/${inventoryid}`
+        );
         console.log(data);
         setInventoryData(...data);
       } catch (error) {
