@@ -8,8 +8,6 @@ import BackArrow from "../../assets/icons/arrow_back-24px.svg";
 const EditInventory = () => {
   const { inventoryid } = useParams();
 
-  console.log(inventoryid);
-
   const [warehouseData, setWarehouseData] = useState([]);
 
   const [defaultData, setDefaultData] = useState([
@@ -63,7 +61,6 @@ const EditInventory = () => {
             `${apiURL}/inventories/${inventoryid}`
           );
           setDefaultData(data);
-          console.log(data);
         } catch (error) {
           console.log("Error:", error);
         }
@@ -213,12 +210,14 @@ const EditInventory = () => {
             <label>
               Warehouse
               <select
+                id="warehouse_name"
                 onChange={handleWarehouseChange}
                 name="warehouse_name"
                 value={findWarehouse}
+                defaultValue="warehouse"
               >
                 {warehouseData.map((warehouse) => (
-                  <option value={warehouse.warehouse_name}>
+                  <option value={warehouse.warehouse_name} key={warehouse.id}>
                     {warehouse.warehouse_name}
                   </option>
                 ))}

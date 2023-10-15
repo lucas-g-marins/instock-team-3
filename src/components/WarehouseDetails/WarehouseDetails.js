@@ -41,9 +41,11 @@ export function WarehouseDetails({}) {
         {/* Edit Button Section  */}
 
         <form className="warehouses__forms">
-          <button className="warehouses__button">
-            <h3>Edit</h3>
-          </button>
+          <Link to={`/EditWarehouse/${id}`}>
+            <button className="warehouses__button">
+              <h3>Edit</h3>
+            </button>
+          </Link>
         </form>
       </div>
 
