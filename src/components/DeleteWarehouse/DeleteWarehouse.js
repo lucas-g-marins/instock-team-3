@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import * as React from "react";
 import axios from "axios";
 import { Unstable_Popup as Popup } from "@mui/base/Unstable_Popup";
@@ -27,6 +28,7 @@ export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
 
       <Popup className="modalcontainer" open={open}>
         <PopupBody className="modal">
+
           <h1>Delete {warehousename} warehouse?</h1>
           <p className="modalText">
             Please confirm that you'd like to delete the {warehousename} from
@@ -69,4 +71,3 @@ const blue = {
 };
 
 const PopupBody = styled("div")();
-

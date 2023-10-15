@@ -8,7 +8,7 @@
   width: 90%;
   margin: auto;
   background-color: variables.$white;
-  border-radius: 1.25rem;
+  border-radius: 0;
 
   &__header {
     @include mixins.tablet {
@@ -29,7 +29,6 @@
 
   &__form {
     display: flex;
-    flex-direction: column;
     width: 25%;
     padding: 1rem 1rem;
 
@@ -80,6 +79,61 @@
     @include mixins.desktop {
       display: flex;
       justify-content: space-evenly;
+    }
+  }
+}
+
+.warehouse {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px #bdc5d5 solid;
+  border-bottom: 1rem;
+}
+
+.warehouseSection {
+  flex-direction: column;
+  @include mixins.desktop {
+    flex-direction: row;
+  }
+  @include mixins.tablet {
+    flex-direction: row;
+  }
+}
+
+.warehouseInformation {
+  display: flex;
+  width: 100%;
+
+  .warehouseBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 1rem;
+    flex-wrap: wrap;
+    font-size: 13px;
+    @include mixins.desktop {
+    }
+    @include mixins.tablet {
+    }
+  }
+  .warehouseBorder {
+    border: none;
+    // padding: 1rem;
+
+    @include mixins.desktop {
+      border-left: solid 1px;
+      color: #bdc5bd;
+      // padding: 1rem;
+    }
+    @include mixins.tablet {
+      border-left: solid 1px;
+      color: #bdc5bd;
+      // padding: 1rem;
     }
   }
 }
