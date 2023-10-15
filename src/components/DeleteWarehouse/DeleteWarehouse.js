@@ -1,5 +1,7 @@
-// import * as React from "react";
-// import axios from "axios";
+// import React, { useState } from "react";
+import * as React from "react";
+import axios from "axios";
+
 // import { Unstable_Popup as Popup } from "@mui/base/Unstable_Popup";
 // import { styled } from "@mui/system";
 
@@ -24,30 +26,34 @@
 //     <div>
 //       <div onClick={() => setOpen(true)}>{icon}</div>
 
-//       <Popup open={open}>
-//         <PopupBody>
-//           <h1>Delete {warehousename} warehouse?</h1>
-//           <p>
-//             Please confirm that you'd like to delete the {warehousename} from
-//             the list of warehouses. You won't be able to undo the section.
-//           </p>
-//           <button
-//             onClick={() => {
-//               setOpen(false);
-//             }}>
-//             Cancel
-//           </button>
-//           <button
-//             onClick={() => {
-//               deleteWarehouse();
-//             }}>
-//             Detele
-//           </button>
-//         </PopupBody>
-//       </Popup>
-//     </div>
-//   );
-// }
+
+      {/* <Popup open={open}>
+        <PopupBody>
+          <h1>Delete {warehousename} warehouse?</h1>
+          <p>
+            Please confirm that you'd like to delete the {warehousename} from
+            the list of warehouses. You won't be able to undo the section.
+          </p>
+          <button
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            Cancel
+          </button>
+          <button
+            onClick={() => {
+              deleteWarehouse();
+            }}
+          >
+            Detele
+          </button>
+        </PopupBody>
+      </Popup> */}
+    </div>
+  );
+}
+
 
 // const grey = {
 //   50: "#f6f8fa",
@@ -68,6 +74,28 @@
 //   width: max-content;
 //   padding: 12px 16px;
 //   margin: 8px;
+
+//   border-radius: 8px;
+//   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
+//   background-color: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};
+//   box-shadow: ${
+//     theme.palette.mode === "dark"
+//       ? `0px 4px 8px rgb(0 0 0 / 0.7)`
+//       : `0px 4px 8px rgb(0 0 0 / 0.1)`
+//   };
+//   font-family: 'IBM Plex Sans', sans-serif;
+//   font-size: 0.875rem;
+//   z-index: 1;
+// `
+// );
+
+// const Button = styled("button")`
+//   font-family: "IBM Plex Sans", sans-serif;
+//   font-size: 0.875rem;
+//   line-height: 1.5;
+//   background-color: ${blue[500]};
+//   color: white;
+
 //   border-radius: 8px;
 //   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
 //   background-color: ${theme.palette.mode === "dark" ? grey[900] : grey[50]};

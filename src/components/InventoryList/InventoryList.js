@@ -22,11 +22,11 @@ function InventoryList({}) {
   }, []);
 
   return (
-    <div className="inventory">
-      <div className="inventory__header">
-        <h1 className="inventory__title">Inventories</h1>
-        <form className="inventory__form">
-          <div className="inventory__input-container">
+    <div className="inventories">
+      <div className="inventories__header">
+        <h1 className="inventories__title">Inventory</h1>
+        <form className="inventories__form">
+          <div className="inventories__input-container">
             <input type="text" name="search" placeholder="Search..."></input>
             <img className="inventories__search-icon" src={SearchIcon}></img>
           </div>
@@ -35,7 +35,7 @@ function InventoryList({}) {
           </button>
         </form>
       </div>
-      <div className="inventory__sections">
+      <div className="inventories__sections">
         <h4>INVENTORY ITEM</h4>
         <h4>CATEGORY</h4>
         <h4>STATUS</h4>

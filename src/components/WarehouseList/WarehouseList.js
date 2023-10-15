@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function WarehouseList({}) {
   const [warehouseData, setWarehouseData] = useState([]);
-
+  console.log(process.env);
   const apiURL = process.env.REACT_APP_DATA;
 
   useEffect(() => {
