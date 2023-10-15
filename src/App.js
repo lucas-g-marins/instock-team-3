@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.scss";
 import {
   createBrowserRouter,
@@ -24,7 +24,7 @@ import AddInventory from "./components/AddInventory/AddInventory";
 import DeleteInventoryModal from "./components/DeleteInventory/DeleteInventory";
 
 function App() {
-   const [isDeleteInventoryModalOpen, setDeleteInventoryModalOpen] =
+  const [isDeleteInventoryModalOpen, setDeleteInventoryModalOpen] =
     useState(false);
   const [itemNameToDelete, setItemNameToDelete] = useState(""); // Initialize the item name state
 
@@ -48,7 +48,7 @@ function App() {
     // Implement the cancel action here, such as resetting any form fields.
     closeDeleteInventoryModal();
   };
-  
+
   return (
     <section className="application">
       <Header />
@@ -70,13 +70,18 @@ function App() {
           path={"/InventoryDetails/:inventoryid"}
           element={<InventoryDetails />}
         />
-              <DeleteInventoryModal
-        isOpen={isDeleteInventoryModalOpen}
-        onClose={closeDeleteInventoryModal}
-        onDelete={handleDelete}
-        onCancel={handleCancel}
-        itemName={itemNameToDelete} // Pass the item name as a prop
-      />
+        <Route
+          path={"/DeleteInventory"}
+          element={
+            <DeleteInventoryModal
+              isOpen={isDeleteInventoryModalOpen}
+              onClose={closeDeleteInventoryModal}
+              onDelete={handleDelete}
+              onCancel={handleCancel}
+              itemName={itemNameToDelete} // Pass the item name as a prop
+            />
+          }
+        />
       </Routes>
       <Footer />
     </section>

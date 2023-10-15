@@ -42,7 +42,7 @@ function WarehouseList({}) {
             ></input>
             <img className="warehouses__search-icon" src={SearchIcon}></img>
           </div>
-          <button className="warehouses__button">
+          <button className="warehouses__add-button">
             <h3 onClick={goAdd}>+ Add New Warehouse</h3>
           </button>
         </form>

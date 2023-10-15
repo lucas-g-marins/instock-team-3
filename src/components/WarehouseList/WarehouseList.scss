@@ -71,10 +71,11 @@
     }
   }
 
-  &__button {
+  &__add-button {
     background-color: variables.$instock-indigo;
     margin-bottom: 1rem;
     width: 100%;
+    margin: 0;
     @include mixins.tablet {
       width: 40%;
       padding: 0 1rem;
