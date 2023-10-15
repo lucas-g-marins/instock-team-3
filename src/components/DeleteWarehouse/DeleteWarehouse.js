@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as React from "react";
+// import * as React from "react";
 import axios from "axios";
 import { Unstable_Popup as Popup } from "@mui/base/Unstable_Popup";
 import { styled } from "@mui/system";
@@ -7,7 +7,7 @@ import "./DeleteWarehouse.scss";
 
 export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
   const apiURL = process.env.REACT_APP_DATA;
-    // const [anchor, setAnchor] = (React.useState < null) | (HTMLElement > null);
+  // const [anchor, setAnchor] = (React.useState < null) | (HTMLElement > null);
   const [open, setOpen] = React.useState(false);
 
   const deleteWarehouse = async () => {
@@ -16,7 +16,7 @@ export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
         `${apiURL}/warehouses/${warehouseid}`
       );
       console.log(data);
-        // setWarehouseData(...data);
+      // setWarehouseData(...data);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -28,7 +28,6 @@ export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
 
       <Popup className="modalcontainer" open={open}>
         <PopupBody className="modal">
-
           <h1>Delete {warehousename} warehouse?</h1>
           <p className="modalText">
             Please confirm that you'd like to delete the {warehousename} from
@@ -39,14 +38,16 @@ export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
               className="cancelButton"
               onClick={() => {
                 setOpen(false);
-              }}>
+              }}
+            >
               Cancel
             </button>
             <button
               className="deleteButton"
               onClick={() => {
                 deleteWarehouse();
-              }}>
+              }}
+            >
               Detele
             </button>
           </div>
