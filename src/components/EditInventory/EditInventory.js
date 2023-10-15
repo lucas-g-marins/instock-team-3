@@ -83,6 +83,13 @@ const EditInventory = () => {
     (warehouse) => warehouse.warehouse_name === lookUpWarehouse
   );
 
+  //   handle stock change
+  const [stock, setStock] = useState("");
+
+  const handleStockChange = (e) => {
+    setStock(e.target.value);
+  };
+
   //   handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,7 +99,7 @@ const EditInventory = () => {
         item_name: inventoryData.item_name,
         description: inventoryData.description,
         category: inventoryData.category,
-        status: inventoryData.status,
+        status: stock,
         quantity: inventoryData.quantity,
       })
       .then((result) => console.log(result))
@@ -171,10 +178,11 @@ const EditInventory = () => {
                   type="radio"
                   id="instock"
                   name="stock"
-                  value={inventoryData.status}
+                  value=" In Stock"
                   className="edit-inventory__radio"
                   onClick={showQuantity}
-                  checked={defaultData[0].status === "In Stock"}
+                  onChange={handleStockChange}
+                  //   checked={defaultData[0].status === "In Stock"}
                 ></input>
                 <label>In Stock</label>
               </div>
@@ -183,10 +191,11 @@ const EditInventory = () => {
                   type="radio"
                   id="outstock"
                   name="stock"
-                  value={inventoryData.status}
+                  value="Out of Stock"
                   className="edit-inventory__radio"
                   onClick={handleQuantity}
-                  checked={defaultData[0].status === "Out of Stock"}
+                  onChange={handleStockChange}
+                  //   checked={defaultData[0].status === "Out of Stock"}
                 ></input>
                 <label>Out Of Stock</label>
               </div>
@@ -198,6 +207,7 @@ const EditInventory = () => {
                 value={inventoryData.quantity}
                 onChange={handleInputChange}
                 name="quantity"
+                placeholder={defaultData[0].quantity}
               ></input>
             </label>
             <label>
