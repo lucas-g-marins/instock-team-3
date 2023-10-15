@@ -7,13 +7,20 @@
 }
 
 // input styling
-input {
+input,
+textarea,
+select {
   border-radius: 1.25rem;
   border: 1px solid variables.$cloud;
   height: 2.25rem;
   width: 100%;
   margin-bottom: 4px;
   padding: 0 1rem;
+  font-family: "Titillium";
+
+  &::placeholder {
+    font-family: "Titillium";
+  }
 }
 
 button {

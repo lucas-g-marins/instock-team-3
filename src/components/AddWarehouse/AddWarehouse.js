@@ -12,20 +12,12 @@ function AddWarehouse() {
     setWarehouseName(e.target.value);
   };
 
-  //   const [warehouseInputClass, setWarehouseInputClass] = useState(
-  //     "add-warehouse__noerror"
-  //   );
-  //  address
   const [address, setAddress] = useState("");
 
   const handleAddress = (e) => {
     setAddress(e.target.value);
   };
 
-  //   const [addressInputClass, setAddressInputClass] = useState(
-  //     "add-warehouse__noerror"
-  //   );
-  //   city
   const [city, setCity] = useState("");
 
   const handleCity = (e) => {
