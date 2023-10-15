@@ -18,8 +18,10 @@ import EditWarehouse from "./components/EditWarehouse/EditWarehouse"; // Import 
 import Footer from "./components/Footer/Footer"; // Import the footer component
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import InventoryCard from "./components/InventoryCard/InventoryCard";
+import InventoryDetails from "./components/InventoryDetails/InventoryDetails";
 import EditInventory from "./components/EditInventory/EditInventory";
 import AddInventory from "./components/AddInventory/AddInventory";
+
 
 function App() {
   return (
