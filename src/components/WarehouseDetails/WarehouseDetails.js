@@ -5,7 +5,6 @@ import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import ArrowBack from "../../assets/images/arrow_back-24px.svg";
 import axios from "axios";
 
-
 export function WarehouseDetails({}) {
   const { id } = useParams();
   const [warehouseData, setWarehouseData] = useState([]);
