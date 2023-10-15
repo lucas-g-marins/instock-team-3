@@ -38,15 +38,17 @@ export default function DeleteWarehouse({ warehouseid, warehousename, icon }) {
               className="cancelButton"
               onClick={() => {
                 setOpen(false);
-              }}>
+              }}
+            >
               Cancel
             </button>
             <button
               className="deleteButton"
               onClick={() => {
                 deleteWarehouse();
-              }}>
-              Detele
+              }}
+            >
+              Delete
             </button>
           </div>
         </PopupBody>

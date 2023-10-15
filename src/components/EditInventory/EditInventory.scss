@@ -128,6 +128,7 @@
     background-color: #fff;
     border: 1px solid variables.$cloud;
     color: #000;
+    margin: 0;
 
     @include mixins.tablet {
       width: 15%;
@@ -141,6 +142,7 @@
   &__save {
     width: 40%;
     background-color: variables.$instock-indigo;
+    margin: 0;
 
     @include mixins.tablet {
       width: 15%;
