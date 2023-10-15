@@ -19,6 +19,7 @@ import Footer from "./components/Footer/Footer"; // Import the footer component
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import InventoryCard from "./components/InventoryCard/InventoryCard";
 import EditInventory from "./components/EditInventory/EditInventory";
+import AddInventory from "./components/AddInventory/AddInventory";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           element={<EditWarehouse />}
         />
         <Route path={"/InventoryList"} element={<InventoryList />} />
+        <Route path={"/AddInventory"} element={<AddInventory />} />
         <Route path={"/AddWarehouse"} element={<AddWarehouse />} />
         <Route
           path={"/EditInventory/:inventoryid"}
