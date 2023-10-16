@@ -7,7 +7,7 @@ import backIcon from "../../assets/images/arrow_back-24px.svg";
 import { Link } from "react-router-dom";
 
 export function InventoryDetails() {
-  const { id } = useParams();
+  const { inventoryid } = useParams();
   const [inventoryData, setInventoryData] = useState([]);
 
   const apiURL = process.env.REACT_APP_DATA;
@@ -15,7 +15,9 @@ export function InventoryDetails() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`${apiURL}/inventories/${id}`);
+        const { data } = await axios.get(
+          `${apiURL}/inventories/${inventoryid}`
+        );
         console.log(data);
         setInventoryData(...data);
       } catch (error) {
@@ -43,18 +45,66 @@ export function InventoryDetails() {
             </button>
           </form>
         </div>
-        <div className="inventories__sections">
-          <h4>ITEM DESCRIPTION</h4>
-          <h4>CATEGORY</h4>
-          <h4>STATUS</h4>
-          <h4>QUANTITY</h4>
-          <h4>WAREHOUSE</h4>
+
+        {/* //MOBILE */}
+        <div className="inventories-sections__mobile">
+          <div className="inventories-sections__left">
+            <div>
+              <h4>INVENTORY DESCRIPTION:</h4>
+              <h3>{inventoryData.description}</h3>
+            </div>
+            <div>
+              <h4>CATEGORY:</h4>
+              <h3>{inventoryData.category}</h3>
+            </div>
+          </div>
+          <div className="inventories-sections__right">
+            <div className="inventories-sections__right-top">
+              <div className="inventories-sections__status">
+                <h4>STATUS:</h4>
+                <h3>{inventoryData.status}</h3>
+              </div>
+              <div>
+                <h4>QUANTITY:</h4>
+                <h3>{inventoryData.quantity}</h3>
+              </div>
+            </div>
+            <div>
+              <h4>WAREHOUSE:</h4>
+              <h3>{inventoryData.warehouse_name}</h3>
+            </div>
+          </div>
         </div>
-        <h4>{inventoryData.description}</h4>
-        <h4>{inventoryData.category}</h4>
-        <h4>{inventoryData.status}</h4>
-        <h4>{inventoryData.quantity}</h4>
-        <h4>{inventoryData.warehouse_name}</h4>
+
+        {/* //TABLET AND DESKTOP */}
+        <div className="inventories-sections__tablet-desktop">
+          <div className="inventories-sections__left">
+            <div>
+              <h4>INVENTORY DESCRIPTION:</h4>
+              <h3>{inventoryData.description}</h3>
+            </div>
+            <div>
+              <h4>CATEGORY:</h4>
+              <h3>{inventoryData.category}</h3>
+            </div>
+          </div>
+          <div className="inventories-sections__right">
+            <div className="inventories-sections__right-top">
+              <div className="inventories-sections__status">
+                <h4>STATUS:</h4>
+                <h3>{inventoryData.status}</h3>
+              </div>
+              <div>
+                <h4>QUANTITY:</h4>
+                <h3>{inventoryData.quantity}</h3>
+              </div>
+            </div>
+            <div>
+              <h4>WAREHOUSE:</h4>
+              <h3>{inventoryData.warehouse_name}</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
