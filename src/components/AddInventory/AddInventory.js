@@ -221,7 +221,7 @@ const AddInventory = () => {
               <select
                 onChange={handleInputChange}
                 name="warehouse_name"
-                value={findWarehouse}
+                value={lookUpWarehouse}
               >
                 {warehouseData.map((warehouse) => (
                   <option value={warehouse} key={warehouse.id}>
