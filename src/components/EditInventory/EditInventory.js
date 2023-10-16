@@ -213,7 +213,7 @@ const EditInventory = () => {
                 id="warehouse_name"
                 onChange={handleWarehouseChange}
                 name="warehouse_name"
-                value={findWarehouse}
+                value={lookUpWarehouse}
                 defaultValue="warehouse"
               >
                 {warehouseData.map((warehouse) => (
