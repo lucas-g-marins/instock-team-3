@@ -89,8 +89,8 @@ function InventoryCard({ id, item, category, status, quantity, warehouse }) {
         </h4>
         <h4 className="inventory-card__copy inventory-card__name">{status}</h4>
         <div className="inventory-card__contact-info">
-          <h4 className="inventory-card__copy">{quantity}</h4>
-          <h4 className="inventory-card__copy">
+          <h4 className="inventory-card__quantity">{quantity}</h4>
+          <h4 className="inventory-card__warehouse">
             {warehouseData[0]?.warehouse_name}
           </h4>
         </div>

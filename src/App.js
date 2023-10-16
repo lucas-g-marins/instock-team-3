@@ -23,6 +23,7 @@ import EditInventory from "./components/EditInventory/EditInventory";
 import AddInventory from "./components/AddInventory/AddInventory";
 import DeleteInventoryModal from "./components/DeleteInventory/DeleteInventory";
 
+
 function App() {
   const [isDeleteInventoryModalOpen, setDeleteInventoryModalOpen] =
     useState(false);
@@ -55,6 +56,10 @@ function App() {
       <Routes>
         <Route path={"/WarehouseList"} element={<WarehouseList />} />
         <Route path={"/WarehouseDetails/:id"} element={<WarehouseDetails />} />
+        <Route
+          path={"/InventoryDetails/:inventoryid"}
+          element={<InventoryDetails />}
+        />
         <Route
           path={"/EditWarehouse/:warehouseid"}
           element={<EditWarehouse />}

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./InventoryDetails.scss";
 import InventoryCard from "../InventoryCard/InventoryCard";
 import axios from "axios";
+import backIcon from "../../assets/images/arrow_back-24px.svg";
+import { Link } from "react-router-dom";
 
-function InventoryDetails() {
+
+export function InventoryDetails() {
   const { inventoryid } = useParams();
   const [inventoryData, setInventoryData] = useState([]);
 
@@ -28,25 +32,80 @@ function InventoryDetails() {
     <div className="inventories">
       <div>
         <div className="inventories__header">
-          {/* <h1 className="inventories__title">{inventoryData[0].inventories}</h1> */}
+          <Link to={`/inventorylist`}>
+            <img
+              src={backIcon}
+              alt="Back Icon"
+              className="edit-warehouse__back-icon"
+            />
+          </Link>
+          <h1 className="inventories__title">{inventoryData.item_name}</h1>
           <form className="inventories__form">
             <button className="inventories__button">
-              {/* <h3>FIX ADD ITEM NAME</h3> */}
+              <h3>Edit</h3>
             </button>
           </form>
         </div>
-        <div className="inventories__sections">
-          <h4>ITEM DESCRIPTION</h4>
-          <h4>CATEGORY</h4>
-          <h4>STATUS</h4>
-          <h4>QUANTITY</h4>
-          <h4>WAREHOUSE</h4>
+
+        {/* //MOBILE */}
+        <div className="inventories-sections__mobile">
+          <div className="inventories-sections__left">
+            <div>
+              <h4>INVENTORY DESCRIPTION:</h4>
+              <h3>{inventoryData.description}</h3>
+            </div>
+            <div>
+              <h4>CATEGORY:</h4>
+              <h3>{inventoryData.category}</h3>
+            </div>
+          </div>
+          <div className="inventories-sections__right">
+            <div className="inventories-sections__right-top">
+              <div className="inventories-sections__status">
+                <h4>STATUS:</h4>
+                <h3>{inventoryData.status}</h3>
+              </div>
+              <div>
+                <h4>QUANTITY:</h4>
+                <h3>{inventoryData.quantity}</h3>
+              </div>
+            </div>
+            <div>
+              <h4>WAREHOUSE:</h4>
+              <h3>{inventoryData.warehouse_name}</h3>
+            </div>
+          </div>
         </div>
-        <h4>{inventoryData.description}</h4>
-        <h4>{inventoryData.category}</h4>
-        <h4>{inventoryData.status}</h4>
-        <h4>{inventoryData.quantity}</h4>
-        <h4>{inventoryData.warehouse_name}</h4>
+
+        {/* //TABLET AND DESKTOP */}
+        <div className="inventories-sections__tablet-desktop">
+          <div className="inventories-sections__left">
+            <div>
+              <h4>INVENTORY DESCRIPTION:</h4>
+              <h3>{inventoryData.description}</h3>
+            </div>
+            <div>
+              <h4>CATEGORY:</h4>
+              <h3>{inventoryData.category}</h3>
+            </div>
+          </div>
+          <div className="inventories-sections__right">
+            <div className="inventories-sections__right-top">
+              <div className="inventories-sections__status">
+                <h4>STATUS:</h4>
+                <h3>{inventoryData.status}</h3>
+              </div>
+              <div>
+                <h4>QUANTITY:</h4>
+                <h3>{inventoryData.quantity}</h3>
+              </div>
+            </div>
+            <div>
+              <h4>WAREHOUSE:</h4>
+              <h3>{inventoryData.warehouse_name}</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
