@@ -44,7 +44,6 @@ const AddInventory = () => {
     category: "",
     status: "",
     quantity: "",
-    warehouse_name: "",
   });
 
   const [warehouseId, setWarehouseId] = useState("");
@@ -100,7 +99,7 @@ const AddInventory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post(`${apiURL}/inventories/`, {
+      .post(`${apiURL}/inventories`, {
         warehouse_id: warehouseId,
         item_name: inventoryData.item_name,
         description: inventoryData.description,
@@ -219,9 +218,11 @@ const AddInventory = () => {
             <label>
               Warehouse
               <select
+                id="warehouse_name"
                 onChange={handleInputChange}
                 name="warehouse_name"
                 value={lookUpWarehouse}
+                defaultValue="warehouse"
               >
                 {warehouseData.map((warehouse) => (
                   <option value={warehouse} key={warehouse.id}>

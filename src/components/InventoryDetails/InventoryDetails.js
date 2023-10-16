@@ -6,10 +6,10 @@ import axios from "axios";
 import backIcon from "../../assets/images/arrow_back-24px.svg";
 import { Link } from "react-router-dom";
 
-
 export function InventoryDetails() {
   const { inventoryid } = useParams();
   const [inventoryData, setInventoryData] = useState([]);
+  const [warehouseData, setWarehouseData] = useState([]);
 
   const apiURL = process.env.REACT_APP_DATA;
 
@@ -27,6 +27,25 @@ export function InventoryDetails() {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (inventoryData) {
+      const fetchData = async () => {
+        try {
+          const { data } = await axios.get(
+            `${apiURL}/warehouses/${inventoryData.warehouse_id}`
+          );
+          console.log(data);
+          setWarehouseData(data);
+        } catch (error) {
+          console.log("Error:", error);
+        }
+      };
+      fetchData();
+    }
+  }, []);
+
+  console.log(inventoryData.warehouse_id);
 
   return (
     <div className="inventories">
@@ -72,7 +91,7 @@ export function InventoryDetails() {
             </div>
             <div>
               <h4>WAREHOUSE:</h4>
-              <h3>{inventoryData.warehouse_name}</h3>
+              <h3>{warehouseData.warehouse_name}</h3>
             </div>
           </div>
         </div>
@@ -102,7 +121,7 @@ export function InventoryDetails() {
             </div>
             <div>
               <h4>WAREHOUSE:</h4>
-              <h3>{inventoryData.warehouse_name}</h3>
+              <h3>{warehouseData.warehouse_name}</h3>
             </div>
           </div>
         </div>
