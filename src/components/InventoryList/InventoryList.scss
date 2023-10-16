@@ -72,6 +72,8 @@
   &__button {
     background-color: variables.$instock-indigo;
     margin-bottom: 1rem;
+    margin: 0;
+    width: 100%;
     @include mixins.tablet {
       width: 40%;
       padding: 0 1rem;

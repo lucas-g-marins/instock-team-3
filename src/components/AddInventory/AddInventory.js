@@ -145,7 +145,8 @@ const AddInventory = () => {
                 value={inventoryData.item_name}
                 name="item_name"
                 onChange={handleInputChange}
-                placeholder={defaultData[0].item_name}></input>
+                placeholder={defaultData[0].item_name}
+              ></input>
             </label>
             <label className="edit-inventory__label">
               Description
@@ -153,7 +154,8 @@ const AddInventory = () => {
                 value={inventoryData.description}
                 onChange={handleInputChange}
                 name="description"
-                placeholder={defaultData[0].description}></textarea>
+                placeholder={defaultData[0].description}
+              ></textarea>
             </label>
             <label className="edit-inventory__label">
               Category
@@ -162,7 +164,8 @@ const AddInventory = () => {
                 name="category"
                 value={inventoryData.category}
                 onChange={handleInputChange}
-                defaultValue={defaultData[0].category}>
+                defaultValue={defaultData[0].category}
+              >
                 <option value="accessories">Accessories</option>
                 <option value="apparel">Apparel</option>
                 <option value="electronics">Electronics</option>
@@ -210,16 +213,20 @@ const AddInventory = () => {
                 value={inventoryData.quantity}
                 onChange={handleInputChange}
                 name="quantity"
-                placeholder={defaultData[0].quantity}></input>
+                placeholder={defaultData[0].quantity}
+              ></input>
             </label>
             <label>
               Warehouse
               <select
                 onChange={handleInputChange}
                 name="warehouse_name"
-                value={findWarehouse}>
+                value={lookUpWarehouse}
+              >
                 {warehouseData.map((warehouse) => (
-                  <option value={warehouse}>{warehouse.warehouse_name}</option>
+                  <option value={warehouse} key={warehouse.id}>
+                    {warehouse.warehouse_name}
+                  </option>
                 ))}
               </select>
             </label>

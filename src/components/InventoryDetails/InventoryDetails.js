@@ -6,6 +6,7 @@ import axios from "axios";
 import backIcon from "../../assets/images/arrow_back-24px.svg";
 import { Link } from "react-router-dom";
 
+
 export function InventoryDetails() {
   const { inventoryid } = useParams();
   const [inventoryData, setInventoryData] = useState([]);

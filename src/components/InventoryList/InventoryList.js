@@ -19,7 +19,6 @@ function InventoryList({}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const { data } = await axios.get(`${apiURL}/inventories`);
         setInventoryData(data);
         console.log("Inventory Item:", data);
@@ -61,7 +60,6 @@ function InventoryList({}) {
           status={inventory.status}
           quantity={inventory.quantity}
           warehouse={inventory.warehouse_id}
-          id={inventory.id}
         />
       ))}
     </div>

@@ -40,10 +40,12 @@ export function WarehouseDetails({}) {
 
         {/* Edit Button Section  */}
 
-        <form className="warehouses__form">
-          <button className="warehouses__button">
-            <h3>Edit</h3>
-          </button>
+        <form className="warehouses__forms">
+          <Link to={`/EditWarehouse/${id}`}>
+            <button className="warehouses__button">
+              <h3>Edit</h3>
+            </button>
+          </Link>
         </form>
       </div>
 

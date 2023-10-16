@@ -1,10 +1,10 @@
 /* EditWarehouse.js */
-
 import React, { useEffect, useState } from "react";
 import "./EditWarehouse.scss"; // Import the SASS
 import backIcon from "../../assets/images/arrow_back-24px.svg"; // Import the icon
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+
 
 const EditWarehouse = () => {
   const { warehouseid } = useParams();
@@ -104,7 +104,6 @@ const EditWarehouse = () => {
                 <h2 className="edit-warehouse__section-title">
                   Warehouse Details
                 </h2>
-
                 <div className="edit-warehouse__form-field">
                   <label htmlFor="warehouseName">Warehouse Name</label>
                   <br />
@@ -159,7 +158,6 @@ const EditWarehouse = () => {
                 <h2 className="edit-warehouse__section-title">
                   Contact Details
                 </h2>
-
                 <div className="edit-warehouse__form-field">
                   <label htmlFor="contactName">Contact Name</label>
                   <br />

@@ -1,0 +1,68 @@
+const dummyData = [
+  {
+    id: 1,
+    inventoryItem: "Television",
+    status: "In Stock",
+    category: "Electronics",
+    qty: 500,
+    warehouse: "Manhattan",
+  },
+  //   {
+  //     id: 2,
+  //     inventoryItem: "Laptop",
+  //     status: "Out of Stock",
+  //     category: "Electronics",
+  //     qty: 0,
+  //     warehouse: "Brooklyn",
+  //   },
+  //   {
+  //     id: 3,
+  //     inventoryItem: "Smartphone",
+  //     status: "In Stock",
+  //     category: "Electronics",
+  //     qty: 250,
+  //     warehouse: "Queens",
+  //   },
+  //   {
+  //     id: 4,
+  //     inventoryItem: "Headphones",
+  //     status: "In Stock",
+  //     category: "Electronics",
+  //     qty: 100,
+  //     warehouse: "Bronx",
+  //   },
+  //   {
+  //     id: 5,
+  //     inventoryItem: "Coffee Maker",
+  //     status: "Out of Stock",
+  //     category: "Kitchen Appliances",
+  //     qty: 0,
+  //     warehouse: "Staten Island",
+  //   },
+  //   {
+  //     id: 6,
+  //     inventoryItem: "Desk Chair",
+  //     status: "In Stock",
+  //     category: "Furniture",
+  //     qty: 50,
+  //     warehouse: "Manhattan",
+  //   },
+  //   {
+  //     id: 7,
+  //     inventoryItem: "Printer",
+  //     status: "In Stock",
+  //     category: "Electronics",
+  //     qty: 30,
+  //     warehouse: "Queens",
+  //   },
+  //   {
+  //     id: 8,
+  //     inventoryItem: "Air Purifier",
+  //     status: "Out of Stock",
+  //     category: "Home Appliances",
+  //     qty: 0,
+  //     warehouse: "Brooklyn",
+  //   },
+];
+
+export default dummyData;
